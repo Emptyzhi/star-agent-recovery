@@ -9,7 +9,6 @@
       "SR_percent": 0.2,
       "R_percent": 0.2,
       "tasks_file": "reproducibility/table1/ReAct/Game24/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_react_game24_full500_after_star_webshop_20261019",
       "scope": "selected complete run"
     },
     {
@@ -21,7 +20,6 @@
       "SR_percent": 32.08955223880597,
       "R_percent": 32.08955223880597,
       "tasks_file": "reproducibility/table1/ReAct/ALFWorld/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_react_alfworld50_full134_c40_retry02_20261020",
       "scope": "selected complete run"
     },
     {
@@ -33,7 +31,6 @@
       "SR_percent": 23.8,
       "R_percent": 41.830666666666666,
       "tasks_file": "reproducibility/table1/ReAct/WebShop/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_react_webshop_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -45,7 +42,6 @@
       "SR_percent": 0.2,
       "R_percent": 0.2,
       "tasks_file": "reproducibility/table1/ReAct/Game24/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_react_game24_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -57,7 +53,6 @@
       "SR_percent": 17.16417910447761,
       "R_percent": 17.16417910447761,
       "tasks_file": "reproducibility/table1/ReAct/ALFWorld/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_react_alfworld50_full134_c40_20261020",
       "scope": "selected complete run"
     },
     {
@@ -69,7 +64,6 @@
       "SR_percent": 22.4,
       "R_percent": 42.62833333333333,
       "tasks_file": "reproducibility/table1/ReAct/WebShop/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_react_webshop_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -81,7 +75,6 @@
       "SR_percent": 7.6,
       "R_percent": 7.6,
       "tasks_file": "reproducibility/table1/ReAct/Game24/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_react_game24_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -93,7 +86,6 @@
       "SR_percent": 88.05970149253731,
       "R_percent": 88.05970149253731,
       "tasks_file": "reproducibility/table1/ReAct/ALFWorld/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_react_alfworld50_full134_c40_20261019",
       "scope": "selected complete run"
     },
     {
@@ -105,7 +97,6 @@
       "SR_percent": 29.2,
       "R_percent": 47.54333333333334,
       "tasks_file": "reproducibility/table1/ReAct/WebShop/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_react_webshop_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -117,7 +108,6 @@
       "SR_percent": 4.4,
       "R_percent": 4.4,
       "tasks_file": "reproducibility/table1/Reflexion/Game24/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_reflexion_game24_firstline_full500_20261010_repeat02_pair_v1",
       "scope": "selected complete run"
     },
     {
@@ -129,7 +119,6 @@
       "SR_percent": 46.26865671641791,
       "R_percent": 46.26865671641791,
       "tasks_file": "reproducibility/table1/Reflexion/ALFWorld/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_reflexion_alfworld50_full134_c40_20261020",
       "scope": "selected complete run"
     },
     {
@@ -141,7 +130,6 @@
       "SR_percent": 43.2,
       "R_percent": 69.515,
       "tasks_file": "reproducibility/table1/Reflexion/WebShop/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_reflexion_webshop_repeat01_20261011",
       "scope": "selected complete run"
     },
     {
@@ -153,7 +141,6 @@
       "SR_percent": 5.4,
       "R_percent": 5.4,
       "tasks_file": "reproducibility/table1/Reflexion/Game24/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_reflexion_game24_after_lats_c40_rep01_20261020",
       "scope": "selected complete run"
     },
     {
@@ -165,7 +152,6 @@
       "SR_percent": 46.26865671641791,
       "R_percent": 46.26865671641791,
       "tasks_file": "reproducibility/table1/Reflexion/ALFWorld/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_reflexion_alfworld50_full134_c40_20261020",
       "scope": "selected complete run"
     },
     {
@@ -177,7 +163,6 @@
       "SR_percent": 37.0,
       "R_percent": 65.70666666666666,
       "tasks_file": "reproducibility/table1/Reflexion/WebShop/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_reflexion_webshop_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -189,7 +174,6 @@
       "SR_percent": 16.0,
       "R_percent": 16.0,
       "tasks_file": "reproducibility/table1/Reflexion/Game24/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_reflexion_game24_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -201,7 +185,6 @@
       "SR_percent": 89.55223880597015,
       "R_percent": 89.55223880597015,
       "tasks_file": "reproducibility/table1/Reflexion/ALFWorld/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_reflexion_alfworld50_full134_c40_20261019",
       "scope": "selected complete run"
     },
     {
@@ -213,7 +196,6 @@
       "SR_percent": 44.2,
       "R_percent": 69.92666666666668,
       "tasks_file": "reproducibility/table1/Reflexion/WebShop/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_reflexion_webshop_recovery4_stagecosts_20261011_r1",
       "scope": "through one recovery"
     },
     {
@@ -225,7 +207,6 @@
       "SR_percent": 4.6,
       "R_percent": 4.6,
       "tasks_file": "reproducibility/table1/ToT/Game24/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_01_tot_game24_v10_20261011",
       "scope": "selected complete run"
     },
     {
@@ -237,7 +218,6 @@
       "SR_percent": 21.64179104477612,
       "R_percent": 21.64179104477612,
       "tasks_file": "reproducibility/table1/ToT/ALFWorld/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_tot_alfworld50_full134_c40_20261020",
       "scope": "selected complete run"
     },
     {
@@ -249,7 +229,6 @@
       "SR_percent": 38.2,
       "R_percent": 68.21166666666667,
       "tasks_file": "reproducibility/table1/ToT/WebShop/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_03_tot_webshop_v10_20261011",
       "scope": "selected complete run"
     },
     {
@@ -261,7 +240,6 @@
       "SR_percent": 5.0,
       "R_percent": 5.0,
       "tasks_file": "reproducibility/table1/ToT/Game24/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_tot_game24_labelstop_singlebfs_full500_20261010_v9",
       "scope": "selected complete run"
     },
     {
@@ -273,7 +251,6 @@
       "SR_percent": 5.223880597014926,
       "R_percent": 5.223880597014926,
       "tasks_file": "reproducibility/table1/ToT/ALFWorld/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_tot_alfworld50_full134_c40_20261020",
       "scope": "selected complete run"
     },
     {
@@ -285,7 +262,6 @@
       "SR_percent": 26.8,
       "R_percent": 60.82000000000001,
       "tasks_file": "reproducibility/table1/ToT/WebShop/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_tot_webshop_labelstop_singlebfs_full500_20261010_v9",
       "scope": "selected complete run"
     },
     {
@@ -297,7 +273,6 @@
       "SR_percent": 15.0,
       "R_percent": 15.0,
       "tasks_file": "reproducibility/table1/ToT/Game24/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_tot_game24_labelstop_singlebfs_20261011_v9_engine_r2",
       "scope": "selected complete run"
     },
     {
@@ -309,7 +284,6 @@
       "SR_percent": 57.46268656716418,
       "R_percent": 57.46268656716418,
       "tasks_file": "reproducibility/table1/ToT/ALFWorld/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_tot_alfworld50_full134_c40_20261019",
       "scope": "selected complete run"
     },
     {
@@ -321,7 +295,6 @@
       "SR_percent": 27.4,
       "R_percent": 55.999,
       "tasks_file": "reproducibility/table1/ToT/WebShop/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_tot_webshop_labelstop_singlebfs_20261011_v9",
       "scope": "selected complete run"
     },
     {
@@ -333,7 +306,6 @@
       "SR_percent": 5.6,
       "R_percent": 5.6,
       "tasks_file": "reproducibility/table1/LATS/Game24/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_04_lats_game24_v8_20261011",
       "scope": "selected complete run"
     },
     {
@@ -345,7 +317,6 @@
       "SR_percent": 38.80597014925373,
       "R_percent": 38.80597014925373,
       "tasks_file": "reproducibility/table1/LATS/ALFWorld/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_lats_alfworld50_full134_c40_20261020",
       "scope": "selected complete run"
     },
     {
@@ -357,7 +328,6 @@
       "SR_percent": 35.0,
       "R_percent": 57.89666666666667,
       "tasks_file": "reproducibility/table1/LATS/WebShop/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_06_lats_webshop_v8_20261011",
       "scope": "selected complete run"
     },
     {
@@ -369,7 +339,6 @@
       "SR_percent": 5.2,
       "R_percent": 5.2,
       "tasks_file": "reproducibility/table1/LATS/Game24/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_lats_game24_firstline_full500_20261010_v1_score_v7",
       "scope": "selected complete run"
     },
     {
@@ -381,7 +350,6 @@
       "SR_percent": 32.83582089552239,
       "R_percent": 32.83582089552239,
       "tasks_file": "reproducibility/table1/LATS/ALFWorld/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_lats_alfworld50_full134_c40_gpu9_20261021_v6",
       "scope": "selected complete run"
     },
     {
@@ -393,7 +361,6 @@
       "SR_percent": 29.8,
       "R_percent": 62.32000000000001,
       "tasks_file": "reproducibility/table1/LATS/WebShop/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_lats_webshop_firstline_nonfatal_full500_20261010_v8",
       "scope": "selected complete run"
     },
     {
@@ -405,7 +372,6 @@
       "SR_percent": 23.2,
       "R_percent": 23.2,
       "tasks_file": "reproducibility/table1/LATS/Game24/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_lats_game24_nonfatal_20261011_v8",
       "scope": "selected complete run"
     },
     {
@@ -417,7 +383,6 @@
       "SR_percent": 85.07462686567165,
       "R_percent": 85.07462686567165,
       "tasks_file": "reproducibility/table1/LATS/ALFWorld/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_lats_alfworld50_full134_c40_20261019",
       "scope": "selected complete run"
     },
     {
@@ -429,7 +394,6 @@
       "SR_percent": 32.0,
       "R_percent": 54.325,
       "tasks_file": "reproducibility/table1/LATS/WebShop/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_lats_webshop_recovery4_stagecosts_20261012_r2",
       "scope": "through one recovery"
     },
     {
@@ -441,7 +405,6 @@
       "SR_percent": 1.0,
       "R_percent": 1.0,
       "tasks_file": "reproducibility/table1/GA-Rollback/Game24/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_ga_rollback_game24_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -453,7 +416,6 @@
       "SR_percent": 37.3134328358209,
       "R_percent": 37.3134328358209,
       "tasks_file": "reproducibility/table1/GA-Rollback/ALFWorld/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_ga_rollback_alfworld_firstline_full134_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -465,7 +427,6 @@
       "SR_percent": 36.4,
       "R_percent": 64.10333333333332,
       "tasks_file": "reproducibility/table1/GA-Rollback/WebShop/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_ga_rollback_webshop_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -477,7 +438,6 @@
       "SR_percent": 7.6,
       "R_percent": 7.6,
       "tasks_file": "reproducibility/table1/GA-Rollback/Game24/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_ga_rollback_game24_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -489,7 +449,6 @@
       "SR_percent": 38.80597014925373,
       "R_percent": 38.80597014925373,
       "tasks_file": "reproducibility/table1/GA-Rollback/ALFWorld/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_ga_rollback_alfworld_firstline_full134_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -501,7 +460,6 @@
       "SR_percent": 34.4,
       "R_percent": 65.37833333333333,
       "tasks_file": "reproducibility/table1/GA-Rollback/WebShop/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_ga_rollback_webshop_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -513,7 +471,6 @@
       "SR_percent": 19.4,
       "R_percent": 19.4,
       "tasks_file": "reproducibility/table1/GA-Rollback/Game24/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_ga_rollback_game24_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -525,7 +482,6 @@
       "SR_percent": 88.05970149253731,
       "R_percent": 88.05970149253731,
       "tasks_file": "reproducibility/table1/GA-Rollback/ALFWorld/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_ga_rollback_alfworld_firstline_full134_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -537,7 +493,6 @@
       "SR_percent": 40.2,
       "R_percent": 67.31666666666666,
       "tasks_file": "reproducibility/table1/GA-Rollback/WebShop/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_ga_rollback_webshop_firstline_full500_20261010_v1",
       "scope": "selected complete run"
     },
     {
@@ -549,7 +504,6 @@
       "SR_percent": 2.0,
       "R_percent": 2.0,
       "tasks_file": "reproducibility/table1/AgentRewind/Game24/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_agentrewind_game24_full500_initialcue_20261018_r77",
       "scope": "selected complete run"
     },
     {
@@ -561,7 +515,6 @@
       "SR_percent": 31.34328358208955,
       "R_percent": 31.34328358208955,
       "tasks_file": "reproducibility/table1/AgentRewind/ALFWorld/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_agentrewind_alfworld50_full134_c40_20261020",
       "scope": "selected complete run"
     },
     {
@@ -573,7 +526,6 @@
       "SR_percent": 28.6,
       "R_percent": 54.19666666666667,
       "tasks_file": "reproducibility/table1/AgentRewind/WebShop/Mistral-7B-Instruct-v0.3.csv",
-      "source_run_id": "www2027_mistral_agentrewind_webshop_full500_c40_20261019_r78",
       "scope": "selected complete run"
     },
     {
@@ -585,7 +537,6 @@
       "SR_percent": 4.2,
       "R_percent": 4.2,
       "tasks_file": "reproducibility/table1/AgentRewind/Game24/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_agentrewind_game24_full500_initialcue_20261018_r77",
       "scope": "selected complete run"
     },
     {
@@ -597,7 +548,6 @@
       "SR_percent": 19.402985074626866,
       "R_percent": 19.402985074626866,
       "tasks_file": "reproducibility/table1/AgentRewind/ALFWorld/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_agentrewind_alfworld50_full134_c40_gpu16_20261021_r1",
       "scope": "selected complete run"
     },
     {
@@ -609,7 +559,6 @@
       "SR_percent": 32.8,
       "R_percent": 65.11633333333333,
       "tasks_file": "reproducibility/table1/AgentRewind/WebShop/LLaMA-3.1-8B-Instruct.csv",
-      "source_run_id": "www2027_llama_agentrewind_webshop_full500_c40_20261019_r78",
       "scope": "selected complete run"
     },
     {
@@ -621,7 +570,6 @@
       "SR_percent": 10.8,
       "R_percent": 10.8,
       "tasks_file": "reproducibility/table1/AgentRewind/Game24/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_agentrewind_game24_full500_initialcue_20261018_r77",
       "scope": "selected complete run"
     },
     {
@@ -633,7 +581,6 @@
       "SR_percent": 78.35820895522389,
       "R_percent": 78.35820895522389,
       "tasks_file": "reproducibility/table1/AgentRewind/ALFWorld/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_agentrewind_alfworld50_full134_c40_20261019",
       "scope": "selected complete run"
     },
     {
@@ -645,7 +592,6 @@
       "SR_percent": 38.8,
       "R_percent": 64.57000000000001,
       "tasks_file": "reproducibility/table1/AgentRewind/WebShop/Qwen2.5-14B-Instruct.csv",
-      "source_run_id": "www2027_qwen_agentrewind_webshop_full500_c40_20261020_r78",
       "scope": "selected complete run"
     },
     {
@@ -657,7 +603,6 @@
       "SR_percent": 9.4,
       "R_percent": 9.4,
       "tasks_file": "reproducibility/tasks/Game24/LLaMA-3.1-8B-Instruct/full.csv",
-      "source_run_id": "star_nocap_g24_evidence_v12_llama_full500_c40_rep01_20261019",
       "scope": "through one recovery; main table"
     },
     {
@@ -669,7 +614,6 @@
       "SR_percent": 7.2,
       "R_percent": 7.2,
       "tasks_file": "reproducibility/tasks/Game24/Mistral-7B-Instruct-v0.3/full.csv",
-      "source_run_id": "star_nocap_g24_evidence_v12_mistral_full500_c40_rep03_20261019",
       "scope": "through one recovery; main table"
     },
     {
@@ -681,7 +625,6 @@
       "SR_percent": 25.0,
       "R_percent": 25.0,
       "tasks_file": "reproducibility/tasks/Game24/Qwen2.5-14B-Instruct/full.csv",
-      "source_run_id": "star_nocap_g24_evidence_v12_qwen_full500_c40_rep02_20261019",
       "scope": "through one recovery; main table"
     },
     {
@@ -693,7 +636,6 @@
       "SR_percent": 57.46268656716418,
       "R_percent": 57.46268656716418,
       "tasks_file": "reproducibility/tasks/ALFWorld/LLaMA-3.1-8B-Instruct/full.csv",
-      "source_run_id": "www2027_llama_star_alfworld50_full134_c40_gpu16_20261020_r4",
       "scope": "through one recovery; main table"
     },
     {
@@ -705,7 +647,6 @@
       "SR_percent": 52.23880597014925,
       "R_percent": 52.23880597014925,
       "tasks_file": "reproducibility/tasks/ALFWorld/Mistral-7B-Instruct-v0.3/full.csv",
-      "source_run_id": "www2027_mistral_star_alfworld50_full134_c40_repeat04_20261020",
       "scope": "through one recovery; main table"
     },
     {
@@ -717,7 +658,6 @@
       "SR_percent": 94.02985074626865,
       "R_percent": 94.02985074626865,
       "tasks_file": "reproducibility/tasks/ALFWorld/Qwen2.5-14B-Instruct/full.csv",
-      "source_run_id": "www2027_qwen_star_alfworld50_full134_c40_repeat03_20261020",
       "scope": "through one recovery; main table"
     },
     {
@@ -729,7 +669,6 @@
       "SR_percent": 40.8,
       "R_percent": 69.545,
       "tasks_file": "reproducibility/tasks/WebShop/LLaMA-3.1-8B-Instruct/full.csv",
-      "source_run_id": "star_nocap_llama_webshop_full500_c40_rep03_20261019",
       "scope": "through one recovery; main table"
     },
     {
@@ -741,7 +680,6 @@
       "SR_percent": 44.4,
       "R_percent": 70.88166666666666,
       "tasks_file": "reproducibility/tasks/WebShop/Mistral-7B-Instruct-v0.3/full.csv",
-      "source_run_id": "star_nocap_mistral_webshop_full500_c40_rep12_20261020",
       "scope": "through one recovery; main table"
     },
     {
@@ -753,7 +691,6 @@
       "SR_percent": 51.6,
       "R_percent": 75.995,
       "tasks_file": "reproducibility/tasks/WebShop/Qwen2.5-14B-Instruct/full.csv",
-      "source_run_id": "star_nocap_qwen_webshop_full_r4_c40_rep03_20261020",
       "scope": "through one recovery; main table"
     }
   ],

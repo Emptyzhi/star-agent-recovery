@@ -2,16 +2,16 @@
 
 ## Results and configuration identity
 
-`reproducibility/runs.json` maps each released STAR result to its archived run
-identifier, dataset, model, component setting, evaluation scope, and task CSV.
+`reproducibility/runs.json` maps each released STAR result to its
+dataset, model, component setting, evaluation scope, and task CSV.
 It covers the nine main-table STAR results, nine Qwen component removals, and
 the Qwen WebShop recovery-allowance curve. The one-recovery curve point is the
 Qwen WebShop main-table record. The other four curve prefixes are separate
 records; these overlapping prefixes must not be counted as independent tasks.
 
 The Qwen WebShop main-table record covers one recovery (258/500 successes).
-The no-RLR component record contains 240/500 successes. Run identifiers in the
-index determine which records belong to each comparison.
+The no-RLR component record contains 240/500 successes. Dataset, model, variant,
+and evaluation scope identify the records in each comparison.
 
 Each task CSV contains only task indices, outcomes, token counts, request
 counts where recorded, and timing fields. Machine paths, account names,
@@ -20,10 +20,9 @@ count in the compact Llama ALFWorld export means that this field was not
 included in that export; it does not mean zero requests. No manuscript cost
 comparison is computed from that missing field.
 
-Archived settings come from execution requests, group run configurations, or
-task identity records; their source type is stated in each configuration.
-The repository revision identifies the released implementation; the result
-index identifies historical runs. Use their recorded configuration for reruns.
+The indexes retain the recorded settings needed for reruns and aggregation.
+Local source filenames and run-directory identifiers are omitted. Task CSVs,
+evaluation scopes, numerical results, and experiment settings are unchanged.
 
 ## Task selection
 

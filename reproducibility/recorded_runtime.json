@@ -1,6 +1,5 @@
 {
   "scope": "recorded resident health for the Llama ALFWorld main-table run",
-  "source_run_id": "www2027_llama_star_alfworld50_full134_c40_gpu16_20261020_r4",
   "runtime": {
     "engine": "vllm",
     "engine_version": "0.6.6",

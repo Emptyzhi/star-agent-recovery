@@ -4,10 +4,8 @@
       "method": "ReAct",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "Game24",
-      "source_run_id": "www2027_mistral_react_game24_full500_after_star_webshop_20261019",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -537,10 +535,8 @@
       "method": "ReAct",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_mistral_react_alfworld50_full134_c40_retry02_20261020",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -704,10 +700,8 @@
       "method": "ReAct",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "WebShop",
-      "source_run_id": "www2027_mistral_react_webshop_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -1237,10 +1231,8 @@
       "method": "ReAct",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_llama_react_game24_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -1770,10 +1762,8 @@
       "method": "ReAct",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_llama_react_alfworld50_full134_c40_20261020",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -1937,10 +1927,8 @@
       "method": "ReAct",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_llama_react_webshop_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -2470,10 +2458,8 @@
       "method": "ReAct",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_qwen_react_game24_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -3003,10 +2989,8 @@
       "method": "ReAct",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_qwen_react_alfworld50_full134_c40_20261019",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -3170,10 +3154,8 @@
       "method": "ReAct",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_qwen_react_webshop_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -3703,10 +3685,8 @@
       "method": "Reflexion",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "Game24",
-      "source_run_id": "www2027_mistral_reflexion_game24_firstline_full500_20261010_repeat02_pair_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -4236,10 +4216,8 @@
       "method": "Reflexion",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_mistral_reflexion_alfworld50_full134_c40_20261020",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -4403,10 +4381,8 @@
       "method": "Reflexion",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "WebShop",
-      "source_run_id": "www2027_mistral_reflexion_webshop_repeat01_20261011",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -4936,10 +4912,8 @@
       "method": "Reflexion",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_llama_reflexion_game24_after_lats_c40_rep01_20261020",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -5469,10 +5443,8 @@
       "method": "Reflexion",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_llama_reflexion_alfworld50_full134_c40_20261020",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -5636,10 +5608,8 @@
       "method": "Reflexion",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_llama_reflexion_webshop_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -6169,10 +6139,8 @@
       "method": "Reflexion",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_qwen_reflexion_game24_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -6702,10 +6670,8 @@
       "method": "Reflexion",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_qwen_reflexion_alfworld50_full134_c40_20261019",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -6869,10 +6835,8 @@
       "method": "Reflexion",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_qwen_reflexion_webshop_recovery4_stagecosts_20261011_r1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -7403,10 +7367,8 @@
       "method": "ToT",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "Game24",
-      "source_run_id": "www2027_mistral_01_tot_game24_v10_20261011",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -7926,7 +7888,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -8451,10 +8412,8 @@
       "method": "ToT",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_mistral_tot_alfworld50_full134_c40_20261020",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -8618,10 +8577,8 @@
       "method": "ToT",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "WebShop",
-      "source_run_id": "www2027_mistral_03_tot_webshop_v10_20261011",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -9141,7 +9098,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -9666,10 +9622,8 @@
       "method": "ToT",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_llama_tot_game24_labelstop_singlebfs_full500_20261010_v9",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -10189,7 +10143,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -10714,10 +10667,8 @@
       "method": "ToT",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_llama_tot_alfworld50_full134_c40_20261020",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -10881,10 +10832,8 @@
       "method": "ToT",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_llama_tot_webshop_labelstop_singlebfs_full500_20261010_v9",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -11404,7 +11353,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -11929,10 +11877,8 @@
       "method": "ToT",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_qwen_tot_game24_labelstop_singlebfs_20261011_v9_engine_r2",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -12452,7 +12398,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -12977,10 +12922,8 @@
       "method": "ToT",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_qwen_tot_alfworld50_full134_c40_20261019",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -13144,10 +13087,8 @@
       "method": "ToT",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_qwen_tot_webshop_labelstop_singlebfs_20261011_v9",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -13667,7 +13608,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -14192,10 +14132,8 @@
       "method": "LATS",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "Game24",
-      "source_run_id": "www2027_mistral_04_lats_game24_v8_20261011",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -14715,7 +14653,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -15240,10 +15177,8 @@
       "method": "LATS",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_mistral_lats_alfworld50_full134_c40_20261020",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -15406,10 +15341,8 @@
       "method": "LATS",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "WebShop",
-      "source_run_id": "www2027_mistral_06_lats_webshop_v8_20261011",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -15929,7 +15862,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -16454,10 +16386,8 @@
       "method": "LATS",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_llama_lats_game24_firstline_full500_20261010_v1_score_v7",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -16977,7 +16907,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -17502,10 +17431,8 @@
       "method": "LATS",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_llama_lats_alfworld50_full134_c40_gpu9_20261021_v6",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -17664,10 +17591,8 @@
       "method": "LATS",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_llama_lats_webshop_firstline_nonfatal_full500_20261010_v8",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -18187,7 +18112,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -18712,10 +18636,8 @@
       "method": "LATS",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_qwen_lats_game24_nonfatal_20261011_v8",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -19235,7 +19157,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -19760,10 +19681,8 @@
       "method": "LATS",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_qwen_lats_alfworld50_full134_c40_20261019",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -19926,10 +19845,8 @@
       "method": "LATS",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_qwen_lats_webshop_recovery4_stagecosts_20261012_r2",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -20449,7 +20366,6 @@
           }
         },
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -20974,10 +20890,8 @@
       "method": "GA-Rollback",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "Game24",
-      "source_run_id": "www2027_mistral_ga_rollback_game24_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -21507,10 +21421,8 @@
       "method": "GA-Rollback",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_mistral_ga_rollback_alfworld_firstline_full134_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -21674,10 +21586,8 @@
       "method": "GA-Rollback",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "WebShop",
-      "source_run_id": "www2027_mistral_ga_rollback_webshop_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -22207,10 +22117,8 @@
       "method": "GA-Rollback",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_llama_ga_rollback_game24_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -22740,10 +22648,8 @@
       "method": "GA-Rollback",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_llama_ga_rollback_alfworld_firstline_full134_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -22907,10 +22813,8 @@
       "method": "GA-Rollback",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_llama_ga_rollback_webshop_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -23440,10 +23344,8 @@
       "method": "GA-Rollback",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_qwen_ga_rollback_game24_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "game24",
             "task_ids": [
@@ -23973,10 +23875,8 @@
       "method": "GA-Rollback",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_qwen_ga_rollback_alfworld_firstline_full134_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -24140,10 +24040,8 @@
       "method": "GA-Rollback",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_qwen_ga_rollback_webshop_firstline_full500_20261010_v1",
       "evidence": [
         {
-          "source_kind": "group_0/run_config.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -24673,10 +24571,8 @@
       "method": "AgentRewind",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "Game24",
-      "source_run_id": "www2027_mistral_agentrewind_game24_full500_initialcue_20261018_r77",
       "evidence": [
         {
-          "source_kind": "archived_task_identity",
           "settings": {
             "dataset": "game24",
             "backend": "resident",
@@ -24719,10 +24615,8 @@
       "method": "AgentRewind",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_mistral_agentrewind_alfworld50_full134_c40_20261020",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -24864,7 +24758,6 @@
           }
         },
         {
-          "source_kind": "archived_task_identity",
           "settings": {
             "dataset": "alfworld",
             "backend": "resident",
@@ -24907,10 +24800,8 @@
       "method": "AgentRewind",
       "model": "Mistral-7B-Instruct-v0.3",
       "dataset": "WebShop",
-      "source_run_id": "www2027_mistral_agentrewind_webshop_full500_c40_20261019_r78",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -25418,7 +25309,6 @@
           }
         },
         {
-          "source_kind": "archived_task_identity",
           "settings": {
             "dataset": "webshop",
             "backend": "resident",
@@ -25461,10 +25351,8 @@
       "method": "AgentRewind",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_llama_agentrewind_game24_full500_initialcue_20261018_r77",
       "evidence": [
         {
-          "source_kind": "archived_task_identity",
           "settings": {
             "dataset": "game24",
             "backend": "resident",
@@ -25507,10 +25395,8 @@
       "method": "AgentRewind",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_llama_agentrewind_alfworld50_full134_c40_gpu16_20261021_r1",
       "evidence": [
         {
-          "source_kind": "request.json",
           "settings": {
             "method": "agentrewind",
             "dataset": "alfworld",
@@ -25664,7 +25550,6 @@
           }
         },
         {
-          "source_kind": "archived_task_identity",
           "settings": {
             "dataset": "alfworld",
             "backend": "resident",
@@ -25707,10 +25592,8 @@
       "method": "AgentRewind",
       "model": "LLaMA-3.1-8B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_llama_agentrewind_webshop_full500_c40_20261019_r78",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -26218,7 +26101,6 @@
           }
         },
         {
-          "source_kind": "archived_task_identity",
           "settings": {
             "dataset": "webshop",
             "backend": "resident",
@@ -26261,10 +26143,8 @@
       "method": "AgentRewind",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "Game24",
-      "source_run_id": "www2027_qwen_agentrewind_game24_full500_initialcue_20261018_r77",
       "evidence": [
         {
-          "source_kind": "archived_task_identity",
           "settings": {
             "dataset": "game24",
             "backend": "resident",
@@ -26307,10 +26187,8 @@
       "method": "AgentRewind",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "ALFWorld",
-      "source_run_id": "www2027_qwen_agentrewind_alfworld50_full134_c40_20261019",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "alfworld",
             "task_ids": [
@@ -26452,7 +26330,6 @@
           }
         },
         {
-          "source_kind": "archived_task_identity",
           "settings": {
             "dataset": "alfworld",
             "backend": "resident",
@@ -26495,10 +26372,8 @@
       "method": "AgentRewind",
       "model": "Qwen2.5-14B-Instruct",
       "dataset": "WebShop",
-      "source_run_id": "www2027_qwen_agentrewind_webshop_full500_c40_20261020_r78",
       "evidence": [
         {
-          "source_kind": "execution_request.json",
           "settings": {
             "dataset": "webshop",
             "task_ids": [
@@ -27006,7 +26881,6 @@
           }
         },
         {
-          "source_kind": "archived_task_identity",
           "settings": {
             "dataset": "webshop",
             "backend": "resident",

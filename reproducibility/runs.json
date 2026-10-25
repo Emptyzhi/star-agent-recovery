@@ -3,7 +3,6 @@
   "records": [
     {
       "record": "Game24/LLaMA-3.1-8B-Instruct/full",
-      "source_run_id": "star_nocap_g24_evidence_v12_llama_full500_c40_rep01_20261019",
       "dataset": "Game24",
       "model": "LLaMA-3.1-8B-Instruct",
       "variant": "full",
@@ -548,7 +547,6 @@
     },
     {
       "record": "Game24/Mistral-7B-Instruct-v0.3/full",
-      "source_run_id": "star_nocap_g24_evidence_v12_mistral_full500_c40_rep03_20261019",
       "dataset": "Game24",
       "model": "Mistral-7B-Instruct-v0.3",
       "variant": "full",
@@ -1093,7 +1091,6 @@
     },
     {
       "record": "Game24/Qwen2.5-14B-Instruct/full",
-      "source_run_id": "star_nocap_g24_evidence_v12_qwen_full500_c40_rep02_20261019",
       "dataset": "Game24",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "full",
@@ -1638,7 +1635,6 @@
     },
     {
       "record": "ALFWorld/LLaMA-3.1-8B-Instruct/full",
-      "source_run_id": "www2027_llama_star_alfworld50_full134_c40_gpu16_20261020_r4",
       "dataset": "ALFWorld",
       "model": "LLaMA-3.1-8B-Instruct",
       "variant": "full",
@@ -1815,7 +1811,6 @@
     },
     {
       "record": "ALFWorld/Mistral-7B-Instruct-v0.3/full",
-      "source_run_id": "www2027_mistral_star_alfworld50_full134_c40_repeat04_20261020",
       "dataset": "ALFWorld",
       "model": "Mistral-7B-Instruct-v0.3",
       "variant": "full",
@@ -1994,7 +1989,6 @@
     },
     {
       "record": "ALFWorld/Qwen2.5-14B-Instruct/full",
-      "source_run_id": "www2027_qwen_star_alfworld50_full134_c40_repeat03_20261020",
       "dataset": "ALFWorld",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "full",
@@ -2173,7 +2167,6 @@
     },
     {
       "record": "WebShop/LLaMA-3.1-8B-Instruct/full",
-      "source_run_id": "star_nocap_llama_webshop_full500_c40_rep03_20261019",
       "dataset": "WebShop",
       "model": "LLaMA-3.1-8B-Instruct",
       "variant": "full",
@@ -2726,7 +2719,6 @@
     },
     {
       "record": "WebShop/Mistral-7B-Instruct-v0.3/full",
-      "source_run_id": "star_nocap_mistral_webshop_full500_c40_rep12_20261020",
       "dataset": "WebShop",
       "model": "Mistral-7B-Instruct-v0.3",
       "variant": "full",
@@ -3279,7 +3271,6 @@
     },
     {
       "record": "WebShop/Qwen2.5-14B-Instruct/full",
-      "source_run_id": "star_nocap_qwen_webshop_full_r4_c40_rep03_20261020",
       "dataset": "WebShop",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "full",
@@ -3832,7 +3823,6 @@
     },
     {
       "record": "Game24/Qwen2.5-14B-Instruct/no_event_subtree",
-      "source_run_id": "star_nocap_qwen_game24_without_event_subtree_v12_accepted_c40_20261019",
       "dataset": "Game24",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "no_event_subtree",
@@ -4377,7 +4367,6 @@
     },
     {
       "record": "Game24/Qwen2.5-14B-Instruct/no_tcr",
-      "source_run_id": "star_nocap_qwen_game24_without_red_v12_accepted_c40_20261019",
       "dataset": "Game24",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "no_tcr",
@@ -4922,7 +4911,6 @@
     },
     {
       "record": "Game24/Qwen2.5-14B-Instruct/no_rlr",
-      "source_run_id": "star_nocap_qwen_game24_without_yellow_v12_accepted_c40_20261019",
       "dataset": "Game24",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "no_rlr",
@@ -5467,7 +5455,6 @@
     },
     {
       "record": "ALFWorld/Qwen2.5-14B-Instruct/no_event_subtree",
-      "source_run_id": "star_nocap_qwen_alfworld50_without_event_subtree_full134_c40_repeat02_20261020",
       "dataset": "ALFWorld",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "no_event_subtree",
@@ -5646,7 +5633,6 @@
     },
     {
       "record": "ALFWorld/Qwen2.5-14B-Instruct/no_tcr",
-      "source_run_id": "star_nocap_qwen_alfworld50_without_red_full134_c40_20261020",
       "dataset": "ALFWorld",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "no_tcr",
@@ -5825,7 +5811,6 @@
     },
     {
       "record": "ALFWorld/Qwen2.5-14B-Instruct/no_rlr",
-      "source_run_id": "star_nocap_qwen_alfworld50_without_yellow_full134_c40_20261020",
       "dataset": "ALFWorld",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "no_rlr",
@@ -6004,7 +5989,6 @@
     },
     {
       "record": "WebShop/Qwen2.5-14B-Instruct/no_event_subtree",
-      "source_run_id": "star_nocap_qwen_webshop_without_event_subtree_v12_c40_repeat04_20261019",
       "dataset": "WebShop",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "no_event_subtree",
@@ -6557,7 +6541,6 @@
     },
     {
       "record": "WebShop/Qwen2.5-14B-Instruct/no_tcr",
-      "source_run_id": "star_nocap_qwen_webshop_without_red_v12_accepted_c40_20261019",
       "dataset": "WebShop",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "no_tcr",
@@ -7110,7 +7093,6 @@
     },
     {
       "record": "WebShop/Qwen2.5-14B-Instruct/no_rlr",
-      "source_run_id": "star_nocap_qwen_webshop_without_yellow_full500_c40_repeat02_20261021",
       "dataset": "WebShop",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "no_rlr",
@@ -7158,7 +7140,6 @@
     },
     {
       "record": "WebShop/Qwen2.5-14B-Instruct/recovery_0",
-      "source_run_id": "star_nocap_qwen_webshop_full_r4_c40_rep03_20261020",
       "dataset": "WebShop",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "recovery_0",
@@ -7711,7 +7692,6 @@
     },
     {
       "record": "WebShop/Qwen2.5-14B-Instruct/recovery_2",
-      "source_run_id": "star_nocap_qwen_webshop_full_r4_c40_rep03_20261020",
       "dataset": "WebShop",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "recovery_2",
@@ -8264,7 +8244,6 @@
     },
     {
       "record": "WebShop/Qwen2.5-14B-Instruct/recovery_3",
-      "source_run_id": "star_nocap_qwen_webshop_full_r4_c40_rep03_20261020",
       "dataset": "WebShop",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "recovery_3",
@@ -8817,7 +8796,6 @@
     },
     {
       "record": "WebShop/Qwen2.5-14B-Instruct/recovery_4",
-      "source_run_id": "star_nocap_qwen_webshop_full_r4_c40_rep03_20261020",
       "dataset": "WebShop",
       "model": "Qwen2.5-14B-Instruct",
       "variant": "recovery_4",
