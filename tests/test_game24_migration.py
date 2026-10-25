@@ -140,7 +140,7 @@ class GameMigrationTests(unittest.TestCase):
         green = [q['prompt'] for q in requests if q['role']=='green']
         self.assertTrue(all('[EVENT_SUBTREE]' not in q for q in green))
         for prompt in green[4:]:
-            self.assertEqual(prompt.count('Red recovery reflection'), 1)
+            self.assertEqual(prompt.count('Failure reflection (model advice):'), 1)
         self.assertEqual(len(r.ett['nodes']), 8)
 
     def test_first_line_applies_to_yellow_action_and_unknown_usage_is_not_zero(self):

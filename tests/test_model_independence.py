@@ -96,9 +96,9 @@ class ModelIndependenceTests(unittest.TestCase):
 
     def test_runner_and_service_use_same_model_arguments(self):
         worker = ['--website','http://127.0.0.1:3001','--endpoints','http://127.0.0.1:41581',
-                  'http://127.0.0.1:41582','--output-dir','out','--parent-job-id','test-job',
-                  '--node','test-node','--run-namespace','run','--task-ids','0,1','--gpu-index','0']
-        service = ['--state','state','--parent-job-id','test-job','--node','test-node','--gpu-index','0','--port','41581']
+                  'http://127.0.0.1:41582','--output-dir','out','--parent-job-id','123',
+                  '--node','gpu13','--run-namespace','run','--task-ids','0,1','--gpu-index','0']
+        service = ['--state','state','--parent-job-id','123','--node','gpu13','--gpu-index','0','--port','41581']
         for flag in ('--local_llm_path','--model-path'):
             w = worker_parser().parse_args(worker+[flag,'/models/selected','--dtype','float16'])
             s = service_parser().parse_args(service+[flag,'/models/selected','--dtype','float16'])
@@ -107,7 +107,7 @@ class ModelIndependenceTests(unittest.TestCase):
             worker_parser().parse_args(worker+['--model-path','/models/x','--model-config','ignored.json'])
 
     def test_queue_propagates_model_and_dtype_to_both_workers(self):
-        args = SimpleNamespace(model_path='/models/selected',dtype='float16',parent_job_id='test-job',node='test-node')
+        args = SimpleNamespace(model_path='/models/selected',dtype='float16',parent_job_id='123',node='gpu13')
         for gpu in (0,1):
             command = worker_command(PACKAGE,args,'run',[gpu,gpu+2],gpu,self.root)
             parsed = worker_parser().parse_args(command[2:])

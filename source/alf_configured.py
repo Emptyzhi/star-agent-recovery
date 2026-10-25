@@ -3,6 +3,7 @@ from alf_goal_grounded_events import GoalGroundedV64Controller
 from icr_core import Role
 from scoped_recovery import ScopeKind
 from experiment_settings import EXECUTION_PROTOCOL
+import plain_history
 
 
 class ConfiguredAlfController(GoalGroundedV64Controller):
@@ -17,15 +18,14 @@ class ConfiguredAlfController(GoalGroundedV64Controller):
         self.DIAGNOSIS_OUTPUT_TOKENS = settings.yellow_diagnosis_tokens
         self.YELLOW_OUTPUT_TOKENS = settings.yellow_output_tokens
         self.episode.action_limit = settings.initial_actions
+        if not self.EVENT_SUBTREE_ENABLED:
+            plain_history.install(self)
 
     def _bind_scope(self, scope, directive):
-        if self.EVENT_SUBTREE_ENABLED or scope.kind is not ScopeKind.GREEN:
+        if self.EVENT_SUBTREE_ENABLED:
             return super()._bind_scope(scope, directive)
-        # Keep ordinary action receipts and Red memory; omit only event projection.
         self.pending_green_events = []
-        self.episode.set_scope_prompt('', scope.tree.tree_version, kind=scope.kind.value,
-            directive=directive, incident_kind=scope.incident_kind)
-        return self.episode.prompt(())
+        return plain_history.bind(self, scope)
 
     def _ordinary(self, scope, directive):
         self.oracle.ordinary_output_limit = (self.settings.yellow_output_tokens
@@ -44,6 +44,7 @@ class ConfiguredAlfController(GoalGroundedV64Controller):
                     execution_protocol=EXECUTION_PROTOCOL,
                     ablation=self.settings.ablation, red_enabled=self.RED_ENABLED,
                     event_subtree_enabled=self.EVENT_SUBTREE_ENABLED,
+                    ablation_input_policy=(None if self.EVENT_SUBTREE_ENABLED else plain_history.POLICY),
                     yellow_enabled=self.YELLOW_ENTRY_LIMIT > 0,
                     max_red_model_calls=2 if self.RED_ENABLED else 0,
                     max_recovery_actions=self.RECOVERY_WINDOW if self.RED_ENABLED else 0,

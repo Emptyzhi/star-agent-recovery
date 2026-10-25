@@ -3829,9 +3829,9 @@
       "evaluation_scope": "reported component ablation",
       "tasks_file": "tasks/Game24/Qwen2.5-14B-Instruct/no_event_subtree.csv",
       "tasks": 500,
-      "successes": 116,
-      "SR_percent": 23.2,
-      "R_percent": 23.2,
+      "successes": 92,
+      "SR_percent": 18.4,
+      "R_percent": 18.4,
       "configuration": {
         "status": "archived_request",
         "experiment": {
@@ -3847,6 +3847,10 @@
           "yellow_output_tokens": 100,
           "red_reflection_tokens": 256,
           "red_selection_tokens": 100,
+          "model_request_limit": null,
+          "environment_call_limit": null,
+          "total_input_tokens": null,
+          "total_output_tokens": null,
           "task_timeout": 7200,
           "request_timeout": 1200
         },
@@ -4362,7 +4366,8 @@
         "workers_per_gpu": 40,
         "context_limit": 32768,
         "prompt_limit": 32000,
-        "prompt_format": "plain"
+        "prompt_format": "plain",
+        "input_policy": "all_roles_native_chronological_history_v3"
       }
     },
     {
@@ -5461,9 +5466,9 @@
       "evaluation_scope": "reported component ablation",
       "tasks_file": "tasks/ALFWorld/Qwen2.5-14B-Instruct/no_event_subtree.csv",
       "tasks": 134,
-      "successes": 123,
-      "SR_percent": 91.7910447761194,
-      "R_percent": 91.7910447761194,
+      "successes": 114,
+      "SR_percent": 85.07462686567165,
+      "R_percent": 85.07462686567165,
       "configuration": {
         "status": "archived_request",
         "experiment": {
@@ -5479,6 +5484,10 @@
           "yellow_output_tokens": 100,
           "red_reflection_tokens": 256,
           "red_selection_tokens": 100,
+          "model_request_limit": null,
+          "environment_call_limit": 1000,
+          "total_input_tokens": null,
+          "total_output_tokens": null,
           "task_timeout": 7200,
           "request_timeout": 1200
         },
@@ -5628,7 +5637,8 @@
         "workers_per_gpu": 40,
         "context_limit": 32768,
         "prompt_limit": 32000,
-        "prompt_format": "plain"
+        "prompt_format": "plain",
+        "input_policy": "all_roles_native_chronological_history_v3"
       }
     },
     {
@@ -5995,9 +6005,9 @@
       "evaluation_scope": "reported component ablation",
       "tasks_file": "tasks/WebShop/Qwen2.5-14B-Instruct/no_event_subtree.csv",
       "tasks": 500,
-      "successes": 246,
-      "SR_percent": 49.2,
-      "R_percent": 74.888,
+      "successes": 258,
+      "SR_percent": 51.6,
+      "R_percent": 76.23333333333335,
       "configuration": {
         "status": "archived_request",
         "experiment": {
@@ -6013,6 +6023,10 @@
           "yellow_output_tokens": 100,
           "red_reflection_tokens": 256,
           "red_selection_tokens": 100,
+          "model_request_limit": null,
+          "environment_call_limit": null,
+          "total_input_tokens": null,
+          "total_output_tokens": null,
           "task_timeout": 7200,
           "request_timeout": 1200
         },
@@ -6528,15 +6542,16 @@
         "workers_per_gpu": 40,
         "context_limit": 32768,
         "prompt_limit": 32000,
-        "prompt_format": "plain"
+        "prompt_format": "plain",
+        "input_policy": "all_roles_native_chronological_history_v3"
       },
       "cost_means": {
-        "input_tokens": 14694.134,
-        "output_tokens": 267.872,
-        "model_requests": 10.29,
-        "elapsed_seconds": 113.56443423625826,
-        "model_queue_seconds": 48.38439547041059,
-        "queue_excluded_elapsed_seconds": 65.18003876584768
+        "input_tokens": 17882.856,
+        "output_tokens": 256.45,
+        "model_requests": 11.644,
+        "elapsed_seconds": 120.8151560407877,
+        "model_queue_seconds": 42.592917362704874,
+        "queue_excluded_elapsed_seconds": 78.22223867808282
       }
     },
     {

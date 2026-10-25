@@ -264,6 +264,9 @@ class SimpleV64Controller(ScopedRecoveryController):
         return ('Retaining an earlier wrong take retains that held object; '
                 'undo the causing action rather than only its later symptom.')
 
+    def _red_selection_reflection(self, reflection):
+        return '\n\nReflection:\n' + reflection
+
     def _red_memory_facts(self, path, fault_index, reflection):
         """Return public facts that should survive the Red-to-Green handoff."""
 
@@ -357,7 +360,7 @@ class SimpleV64Controller(ScopedRecoveryController):
                         'the first rejected command: an earlier accepted wrong decision may '
                         'be the cause. There is no default root. Choose one listed ACTION id.'),
                     dict(role='user',content=self._red_trace(path,indexed=True)
-                        + '\n\nReflection:\n' + reflection.text
+                        + self._red_selection_reflection(reflection.text)
                         + ('\n\n[RED_PHASE1_EVIDENCE]\n' + canonical(phase1_evidence)
                            + '\nPhase 2 must use the phase-1 evidence above; do not invent a '
                              'transition that is absent from the executed path.\n'

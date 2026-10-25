@@ -58,8 +58,10 @@ class RoleEvidenceTests(unittest.TestCase):
         greens = [q['prompt'] for q in requests if q['role'] == 'green']
         self.assertTrue(all('[EVENT_SUBTREE]' not in prompt for prompt in greens))
         self.assertFalse(c.event_memory)
-        self.assertIn('[EXECUTED_CONTINUATION_AFTER_RESTORE]', greens[-1])
-        self.assertNotIn('action=' + BAD[-1], greens[-1].split('[EXECUTED_CONTINUATION_AFTER_RESTORE]', 1)[1])
+        self.assertNotIn('[EXECUTED_CONTINUATION_AFTER_RESTORE]', greens[-1])
+        self.assertIn('Act 4> ' + BAD[-1], greens[-1])
+        self.assertIn('Act 1> answer: 4 * 6 = 24', greens[-1])
+        self.assertIn('Restored the environment to before ACTION 0.', greens[-1])
 
     def test_recurrent_failed_yellow_retrieved_once_with_actual_outcome(self):
         note = 'FALLIBLE_LOCAL_CORRECTION'

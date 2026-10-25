@@ -5,6 +5,7 @@ from alf_local_evidence import is_query, new_accepted_evidence
 from alf_restored_facts import restored_facts
 from alf_simple_v64 import YELLOW_ACTIONS
 from icr_core import BudgetExhausted,ProtocolError,Role
+import plain_history
 from scoped_recovery import ScopeKind
 from tree_history import canonical
 
@@ -109,6 +110,10 @@ class DiagnosingYellowV64Controller(DiscoveryV64Controller):
             'so briefly and choose a check that can add evidence. Plan only the next local '
             'test; Green remains responsible for the whole task.\n\n'
             '[LOCAL_EVENT_SUBTREE]\n'+canonical(evidence)+'\n\nLocal diagnosis:')
+        if not self.EVENT_SUBTREE_ENABLED:
+            evidence = dict(history=plain_history.local_context(self))
+            prompt = (prompt.split('[LOCAL_EVENT_SUBTREE]', 1)[0]
+                      + '[INTERACTION_HISTORY]\n' + evidence['history'] + '\n\nLocal diagnosis:')
         address=self._address(scope)
         self.oracle.bind(address,self.episode,prompt,())
         generation=self.oracle.request(address,Role.REFLECTION,0,prompt,self.ledger,

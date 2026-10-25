@@ -21,8 +21,8 @@ included in that export; it does not mean zero requests. No manuscript cost
 comparison is computed from that missing field.
 
 The indexes retain the recorded settings needed for reruns and aggregation.
-Local source filenames and run-directory identifiers are omitted. Task CSVs,
-evaluation scopes, numerical results, and experiment settings are unchanged.
+Local source filenames and run-directory identifiers are omitted. Anonymization
+does not alter task outcomes, recorded costs, or experiment settings.
 
 ## Task selection
 
@@ -111,12 +111,17 @@ are incident evidence and do not become executed-action nodes.
 ## Component ablations
 
 The paper's **w/o event subtree** variant uses the archived option
-`without_event_subtree` and CSV identifier `no_event_subtree`. It retains
-ordinary interaction history, recovery notes, and the recovery procedures,
-while removing event-specific records and action guidance supplied through
-the subtree. This is a component-removal comparison, not an equal-information
-comparison between tree and flat serialization. STAR's full event views
-include task-relevant reminders as well as execution and repair records.
+`without_event_subtree` and CSV identifier `no_event_subtree`. Every model role
+receives the chronological interaction history: executed actions and their
+observations, diagnoses and reflections in their original order, and actual
+restoration notices. Native action formats, demonstrations, task instructions,
+current observations, and the required action interface remain available.
+Controller-selected event records, branch and operand-dependency links,
+matched-repeat annotations, and separately selected recovery summaries are not
+provided. The model selects a restoration point from the available action
+indices using ordinary history; automatic mismatch-to-transition mapping is
+disabled for this component setting. Full STAR retains its original behavior.
+The three Qwen `no_event_subtree` CSVs use this all-role history ablation.
 
 ## Complete main-table records
 

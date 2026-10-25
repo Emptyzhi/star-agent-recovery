@@ -128,8 +128,10 @@ class ExecutedEvidenceTests(unittest.TestCase):
         greens = [q['prompt'] for q in requests if q['role'] == 'green']
         self.assertTrue(all('[EVENT_SUBTREE]' not in q for q in greens))
         self.assertNotIn('[EXECUTED_OPERAND_LINEAGE]', greens[0])
-        self.assertIn('[EXECUTED_OPERAND_LINEAGE]', greens[3])
-        self.assertIn('[EXECUTED_OPERAND_LINEAGE]', greens[-1])
+        self.assertNotIn('[EXECUTED_OPERAND_LINEAGE]', greens[3])
+        self.assertNotIn('[EXECUTED_OPERAND_LINEAGE]', greens[-1])
+        self.assertIn('Act 3> 24 / 2 = 12\nObs 3> numbers left: 12', greens[3])
+        self.assertIn('Current numbers: 24', greens[-1])
 
 
 if __name__ == '__main__':

@@ -50,7 +50,7 @@ class PromptFormatTests(unittest.TestCase):
                      csv='/data.csv',endpoints=['http://127.0.0.1:1','http://127.0.0.1:2'],
                      prompt_format='native_chat',experiment={'red_reflection_tokens':256})
         settings,sampling,capacity=resolve_request(request,{})
-        args=SimpleNamespace(model_path='/model',dtype='bfloat16',results_root=Path('/results'),parent_job_id='test-job',node='test-node')
+        args=SimpleNamespace(model_path='/model',dtype='bfloat16',results_root=Path('/results'),parent_job_id='job',node='gpu13')
         command=worker_command(args,request,0,[0],settings,sampling,capacity)
         self.assertEqual(command[command.index('--prompt-format')+1],'native_chat')
         self.assertEqual(command[command.index('--red-reflection-tokens')+1],'256')

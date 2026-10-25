@@ -105,8 +105,9 @@ class Game24HandoffV2Tests(unittest.TestCase):
         self.assertTrue(c.run(0, '1 1 4 6').success)
         self.assertTrue(c.yellow_incidents)
         self.assertFalse(c.event_memory)
-        self.assertTrue(all('[EVENT_SUBTREE]' not in q['prompt'] and note not in q['prompt']
-                            for q in requests if q['role'] == 'green'))
+        greens = [q['prompt'] for q in requests if q['role'] == 'green']
+        self.assertTrue(all('[EVENT_SUBTREE]' not in q for q in greens))
+        self.assertTrue(all(note in q for q in greens[1:]))
 
 
 if __name__ == '__main__':

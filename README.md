@@ -20,8 +20,8 @@ python reproducibility/summarize.py
 
 The main-table index covers 63 cohorts: seven methods, three models, and three
 benchmarks. Each method/model combination includes 500 Game of 24 tasks,
-134 ALFWorld tasks, and 500 WebShop tasks. Result selection follows the table's
-archived run identifiers, including its one-recovery WebShop prefixes.
+134 ALFWorld tasks, and 500 WebShop tasks. The main-table records retain their
+stated evaluation scopes, including the one-recovery WebShop prefixes.
 
 `reproducibility/table1_index.json` identifies all 21 table rows and their task
 records. `reproducibility/baseline_configurations.json` records configuration
@@ -78,9 +78,12 @@ execution position or ask the model to select an available identifier. An
 empty actor response restores its pre-generation checkpoint. Two recovery
 stages therefore do not imply two model calls in every case.
 
-The **w/o event subtree** ablation removes the event-specific records
-and guidance delivered through the subtree, retaining ordinary history and
-recovery notes. See `REPRODUCIBILITY.md` for the archived configuration names.
+The **w/o event subtree** ablation supplies all model roles with chronological
+actions, observations, diagnoses, reflections, and actual restoration notices.
+It does not supply retrieved event records, branch or operand-dependency links,
+matched-repeat annotations, or separately selected recovery summaries. The model
+chooses a restoration point from the available action indices using this history.
+The full STAR path is unchanged. See `REPRODUCIBILITY.md` for configuration details.
 
 ## Layout
 

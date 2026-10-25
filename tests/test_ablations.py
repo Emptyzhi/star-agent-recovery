@@ -27,7 +27,7 @@ class AblationTests(unittest.TestCase):
 
     def test_ablation_survives_queue_dispatch_cli_and_controller(self):
         args = build_parser().parse_args(['--model-path', '/models/qwen', '--request', 'r.json',
-            '--results-root', 'out', '--parent-job-id', 'test-job', '--node', 'test-node'])
+            '--results-root', 'out', '--parent-job-id', '1', '--node', 'gpu13'])
         for variant in ('without_yellow', 'without_red', 'without_event_subtree'):
             cfg, sampling, capacity = resolve_run_settings(args, {'experiment': {'ablation': variant}})
             command = worker_command(PACKAGE, args, 'run', [0, 2], 0, Path('out'),
@@ -75,7 +75,7 @@ class AblationTests(unittest.TestCase):
         self.assertEqual(len(requests), 1)
         self.assertEqual(c.checkpoint_restore_count, 0)
 
-    def test_without_subtree_preserves_red_reflection_once_and_full_ett(self):
+    def test_without_subtree_preserves_reflection_in_chronological_history(self):
         lesson = 'Select the requested red color before buying.'
         c, requests, events = make_controller(['search[cup]', 'click[A]', 'click[Buy Now]',
             lesson, 'ACTION 2', 'click[red]', 'click[Buy Now]'],
@@ -86,9 +86,9 @@ class AblationTests(unittest.TestCase):
         self.assertEqual(len(c.occurrences), 5)
         self.assertEqual(len(c.archived_lineages), 1)
         self.assertTrue(c.checkpoint_cache)
-        recovery = [r for r in requests if 'Actions in this recovery attempt:' in r.prompt]
+        recovery = [r for r in requests if 'Restored the environment to before ACTION' in r.prompt]
         self.assertIn(lesson, recovery[0].prompt)
-        self.assertNotIn(lesson, recovery[1].prompt)
+        self.assertIn(lesson, recovery[1].prompt)
         self.assertTrue(all('EVENT_SUBTREE' not in r.prompt for r in requests))
         self.assertTrue(all('PRODUCT_REQUIREMENT_REVIEW' not in r.prompt for r in requests))
         self.assertTrue(all('HISTORICAL_BRANCH' not in r.prompt for r in recovery))
@@ -104,10 +104,11 @@ class AblationTests(unittest.TestCase):
         self.assertTrue(all('EVENT_SUBTREE' not in r.prompt for r in requests))
         choice = next(r for r in requests if r.route == 'command_trie')
         self.assertIn('click[A]', choice.commands)
-        self.assertIn('current_public_page', choice.prompt)
+        self.assertIn('Observation: Invalid action!', choice.prompt)
+        self.assertNotIn('Current observation:', choice.prompt)
         self.assertNotIn('occurrence_id', choice.prompt)
         self.assertIn(diagnosis, requests[-2].prompt)
-        self.assertNotIn(diagnosis, requests[-1].prompt)
+        self.assertIn(diagnosis, requests[-1].prompt)
 
     def test_ablation_is_task_local_and_rejects_unknown_mode(self):
         with self.assertRaises(ValueError):

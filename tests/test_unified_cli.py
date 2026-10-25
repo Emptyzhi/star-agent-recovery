@@ -27,7 +27,7 @@ from icr_core import Generation
 def arguments(dataset):
     flags = ['--dataset', dataset, '--model-path', '/models/other-model', '--endpoint', 'http://127.0.0.1:41581',
         '--output-dir', 'out', '--run-namespace', 'test', '--task-ids', '2,7',
-        '--parent-job-id', 'test-job', '--node', 'test-node', '--gpu-index', '0']
+        '--parent-job-id', '1', '--node', 'gpu9', '--gpu-index', '0']
     return flags + {'webshop':['--website','http://127.0.0.1:3001'],
                     'game24':['--csv','24.csv'], 'alfworld':['--manifest','manifest.json']}[dataset]
 
@@ -174,7 +174,7 @@ class UnifiedCLITests(unittest.TestCase):
             request.update({'webshop':dict(website='http://127.0.0.1:3001'),
                             'game24':dict(csv='24.csv'),'alfworld':dict(manifest='manifest.json')}[dataset])
             cfg,sampling,capacity = dispatch_star.resolve_request(request,dict(experiment={'initial_actions':15}))
-            args = SimpleNamespace(model_path='/models/model2',dtype='bfloat16',parent_job_id='test-job',node='test-node',results_root=Path('out'))
+            args = SimpleNamespace(model_path='/models/model2',dtype='bfloat16',parent_job_id='1',node='gpu9',results_root=Path('out'))
             command = dispatch_star.worker_command(args,request,1,[7],cfg,sampling,capacity)
             actual = run_star.build_parser().parse_args(command[2:])
             parsed, sample, tasks = run_star.resolve(actual)

@@ -127,6 +127,9 @@ class Game24STARController:
                    prompt=prompt, text=generation.text, input_tokens=generation.input_tokens,
                    output_tokens=generation.output_tokens, output_limit=limit,
                    queue_seconds=generation.queue_seconds, raw=generation.raw)
+        if cfg.ablation == 'without_event_subtree' and role in ('yellow_diagnosis', 'red_reflection'):
+            label = 'Local diagnosis' if role == 'yellow_diagnosis' else 'Failure reflection'
+            self.plain_history.append(label + ' (model advice): ' + generation.text)
         if role == 'green' and self.current_event_record is not None:
             self.event_memory.append(deepcopy(self.current_event_record))
             self.delivered_facts.update(self.current_event_record['fact_keys'])
@@ -141,6 +144,8 @@ class Game24STARController:
         return generation
 
     def _record_protocol_feedback(self, raw, role):
+        if self.settings.ablation == 'without_event_subtree':
+            self.plain_history.append('Unexecuted proposal (' + role + '): ' + repr(raw))
         self.protocol_feedback = ('Not executed ('+role+'): '+repr(raw)+
             '. Expected one binary operation a op b = c, or answer: <complete expression> = 24. '
             'The intermediate grammar accepts two numeric literals and one operator; '
@@ -156,6 +161,8 @@ class Game24STARController:
         return receipt.detail+'; numbers left: '+' '.join(receipt.after['numbers'])
 
     def _history(self):
+        if self.settings.ablation == 'without_event_subtree':
+            return '\n'.join(self.plain_history) + ('\n' if self.plain_history else '')
         lines = []
         for i, receipt in enumerate(self.env.history, 1):
             lines.append('Act %d> %s\nObs %d> %s' %
@@ -165,6 +172,10 @@ class Game24STARController:
     def _operand_record(self, *, checkpoint=None, lineage=True):
         """Render executed provenance only; never expand a final expression."""
         state = self.env.public_state() if checkpoint is None else self.env.public_checkpoint(checkpoint)
+        if self.settings.ablation == 'without_event_subtree':
+            return ('Original numbers: ' + self.env.puzzle + '\n'
+                    + ('Current numbers: ' if checkpoint is None else 'Checkpoint numbers: ')
+                    + ' '.join(state['numbers']))
         history = self.env.history if checkpoint is None else checkpoint['history']
         lines = ['Original input occurrences: '+', '.join(
             value+' [constant.'+str(i)+']' for i, value in enumerate(self.env.puzzle.split(), 1))]
@@ -453,6 +464,8 @@ class Game24STARController:
         return text
 
     def _recovery_context(self):
+        if self.settings.ablation == 'without_event_subtree':
+            return ''
         if not self.recovery_memory:
             return ''
         continuation = self.active_path[self.branch_start_length:]
@@ -465,7 +478,7 @@ class Game24STARController:
 
     def _green_prompt(self):
         memory = ('Your memory for this attempt (fallible advice):\n'+self._recovery_context()+'\n'
-                  if self.recovery_memory else '')
+                  if self.recovery_memory and self.settings.ablation != 'without_event_subtree' else '')
         numbers = self.env.public_state()['numbers']
         if len(numbers) == 1:
             state_instruction = (
@@ -488,6 +501,12 @@ class Game24STARController:
                 'OPERATION STATE: return one binary operation over two separate '
                 'occurrences in the CURRENT pool (their values may be equal), or submit a complete answer only '
                 'when you intentionally revise the prefix.')
+        if self.settings.ablation == 'without_event_subtree' and len(numbers) == 1:
+            state_instruction = state_instruction.replace(
+                'Its executed expression is shown in EXECUTED_OPERAND_LINEAGE.',
+                'Its executed operations are recorded in the interaction history.')
+            state_instruction = state_instruction.replace('that recorded expression',
+                                                          'those recorded operations')
         action_format = (
             'ACTION FORMAT: a binary step is exactly <number> <+|-|*|/> <number> = <number>. '
             'A complete answer is exactly answer: <expression using each ORIGINAL input '
@@ -517,6 +536,10 @@ class Game24STARController:
         before_state_key = self._branch_state_key()
         self.environment_calls += 1
         receipt = self.env.execute(action)
+        if self.settings.ablation == 'without_event_subtree':
+            step = len(self.env.history)
+            self.plain_history.append('Act %d> %s\nObs %d> %s' %
+                                      (step, action, step, self._observation(receipt)))
         self.protocol_feedback = ''
         self.used += 1
         if self.recovering:
@@ -548,10 +571,19 @@ class Game24STARController:
                 'final transcription rather than replacing accepted operations '
                 'with an earlier unverified plan. Environment acceptance of the '
                 'model-written final action is still required.')
+        if self.settings.ablation == 'without_event_subtree':
+            instruction = instruction.replace('expression in EXECUTED_OPERAND_LINEAGE',
+                                              'operations in the interaction history')
+        storage = ('the history' if self.settings.ablation == 'without_event_subtree' else 'ETT')
         return instruction+'\nActions remaining in this window: '+str(self.window_budget-self.used)+(
             '. A final answer also uses one action. Yellow only proposes local environment actions. '
-            'Any judgment about revising earlier operations is recorded in ETT for Red at the '
+            'Any judgment about revising earlier operations is recorded in '+storage+' for Red at the '
             'ordinary failed-attempt boundary; do not output BACKTRACK.')
+
+    def _yellow_history(self):
+        if self.settings.ablation == 'without_event_subtree':
+            return self._history() + 'Original numbers: ' + self.env.puzzle + '\n'
+        return self._history() + self._operand_record() + '\n'
 
     def _yellow(self, incident):
         self.window_yellow += 1
@@ -560,6 +592,8 @@ class Game24STARController:
         self._emit('yellow_entered', incident=incident, entry=self.yellow_entries)
         attempt = incident.get('action', incident.get('raw', ''))
         issue = incident['receipt']['detail'] if 'receipt' in incident else incident['kind']
+        if self.settings.ablation == 'without_event_subtree' and 'receipt' not in incident:
+            issue = 'Pending proposal (not yet executed).'
         repair_focus = 'Use the exact observed issue; distinguish local validity from overall success.'
         if issue == 'INVALID_ACTION_FORMAT':
             repair_focus = 'Repair the action grammar; no environment execution or operand consumption occurred.'
@@ -579,15 +613,31 @@ class Game24STARController:
                        recovery_memory=self._recovery_context() or 'No Red recovery note in this window.',
                        remaining_actions=self.window_budget-self.used, repair_focus=repair_focus)
         context['state_instruction'] = self._yellow_state_instruction(context['rollback_available'])
-        context['history'] += self._operand_record()+'\n'
-        diagnosis = self._request(render(YELLOW_DIAGNOSIS_PROMPT, **context),
+        context['history'] = self._yellow_history()
+        plain = self.settings.ablation == 'without_event_subtree'
+        diagnosis_template = YELLOW_DIAGNOSIS_PROMPT
+        action_template = YELLOW_ACTION_PROMPT
+        if plain:
+            diagnosis_template = diagnosis_template.replace(
+                'Focus from the recorded issue: {repair_focus}\n', '').replace(
+                'Recovery context (unverified; actual receipts take precedence):\n{recovery_memory}\n', '')
+            diagnosis_template = diagnosis_template.replace('Your judgment is stored in ETT.',
+                                                           'Your judgment is recorded in the history.')
+            action_template = action_template.replace(
+                'Your local correction note (fallible advice):\n{diagnosis}\n', '').replace(
+                'Recovery context (unverified; actual receipts take precedence):\n{recovery_memory}\n', '').replace(
+                'Focus from the recorded issue: {repair_focus}\n', '').replace(
+                'revision advice stays in ETT', 'revision advice stays in the history')
+            # The next action receives this diagnosis once, in chronological
+            # order through _history(), never as a separately selected lesson.
+        diagnosis = self._request(render(diagnosis_template, **context),
             'yellow_diagnosis', self.settings.yellow_diagnosis_tokens)
         if not diagnosis.text.strip():
             self._emit('yellow_protocol_failure', phase='diagnosis', raw=diagnosis.text)
         outcome = 'UNRESOLVED'
         progress_evidence = 'NONE'
         for _ in range(min(self.settings.yellow_actions, self.window_budget-self.used)):
-            context.update(history=self._history()+self._operand_record()+'\n', numbers=' '.join(self.env.public_state()['numbers']),
+            context.update(history=self._yellow_history(), numbers=' '.join(self.env.public_state()['numbers']),
                            step=len(self.env.history)+1,
                            state_instruction=self._yellow_state_instruction(context['rollback_available']),
                            remaining_actions=self.window_budget-self.used,
@@ -595,7 +645,7 @@ class Game24STARController:
             if nodes:
                 context.update(attempt=self.nodes[nodes[-1]]['receipt']['action'],
                                issue=self.nodes[nodes[-1]]['receipt']['detail'])
-            action = self._request(render(YELLOW_ACTION_PROMPT, diagnosis=diagnosis.text, **context),
+            action = self._request(render(action_template, diagnosis=diagnosis.text, **context),
                 'yellow_action', self.settings.yellow_output_tokens)
             try:
                 text = self._action(action.text)
@@ -713,17 +763,25 @@ class Game24STARController:
         failed_path = self.active_path[:]
         heading = ('[FAILED_BRANCH_PUBLIC_HISTORY]' if self.settings.ablation == 'without_event_subtree'
                    else '[FAILED_BRANCH_EVENT_SUBTREE]')
+        plain = self.settings.ablation == 'without_event_subtree'
         transcript = ('Here is the task:\nInput: '+self.env.puzzle+
-                      '\n'+heading+'\n'+self._compact_receipts(failed_path))
+                      '\n'+heading+'\n'+(self._history() if plain else self._compact_receipts(failed_path)))
         transcript += '\n'+self._operand_record()+'\n'
-        for event in self.yellow_incidents:
-            transcript += '\n'+self._local_event_projection(event)
-        for event in self.protocol_incidents:
-            transcript += '\nUnexecuted '+event['role']+' proposal: '+repr(event['raw'])
+        if not plain:
+            for event in self.yellow_incidents:
+                transcript += '\n'+self._local_event_projection(event)
+        if not plain:
+            for event in self.protocol_incidents:
+                transcript += '\nUnexecuted '+event['role']+' proposal: '+repr(event['raw'])
         transcript += '\nController-observed failure: '+failure+'\nSTATUS: FAIL'
         if self.protocol_feedback:
             transcript += '\n'+self.protocol_feedback
-        reflection = self._request(author_reflection(transcript, task=self.env.puzzle),
+        if plain:
+            reflection_template = RED_PROMPT.replace('inspect their lineage', 'inspect their recorded operations')
+            reflection_prompt = render(reflection_template, trajectory=transcript, task=self.env.puzzle)
+        else:
+            reflection_prompt = author_reflection(transcript, task=self.env.puzzle)
+        reflection = self._request(reflection_prompt,
             'red_reflection', self.settings.red_reflection_tokens)
         if not reflection.text.strip():
             raise ProtocolError('Red reflection is empty')
@@ -742,8 +800,19 @@ class Game24STARController:
                                   self._operand_record(checkpoint=self.checkpoints[c['checkpoint']])
                                   for c in candidates)
         choices = tuple('ACTION '+str(c['checkpoint']) for c in candidates)
+        if plain:
+            candidate_text = (self._history() + '\nCurrent restorable actions; restore BEFORE the selected action:\n'
+                + '\n'.join('ACTION %d: %s' % (c['checkpoint'], c['next_action']) for c in candidates))
         if choices:
-            selection = self._request(render(RED_CHECKPOINT_PROMPT, task=self.env.puzzle,
+            selection_template = RED_CHECKPOINT_PROMPT
+            if plain:
+                selection_template = selection_template.replace(
+                    'First reflection:\n{reflection}\n', '').replace(
+                    'recorded operand occurrences', 'recorded actions and observations').replace(
+                    'the candidate states are actual saved facts', 'the listed actions have saved checkpoints').replace(
+                    'Public candidates and their saved operand provenance (no future outcomes computed):',
+                    'Interaction history and available checkpoint action indices:')
+            selection = self._request(render(selection_template, task=self.env.puzzle,
                 failure=failure, reflection=reflection.text, candidates=candidate_text),
                 'red_checkpoint', self.settings.red_selection_tokens, commands=choices)
             choice = selection.text
@@ -762,6 +831,10 @@ class Game24STARController:
             raise ResourceLimit('ENVIRONMENT_CALL_LIMIT')
         self.environment_calls += 1
         self.env.restore(self.checkpoints[k])
+        if plain:
+            self.plain_history.append('Restored the environment to before ACTION ' + str(k)
+                                      + '. Earlier actions remain historical records, not the current state.'
+                                      + '\nCurrent numbers: ' + ' '.join(self.env.public_state()['numbers']))
         self.restore_count += 1
         self.archived_paths.append(failed_path)
         self.archived_failures.append(failure)
@@ -798,6 +871,7 @@ class Game24STARController:
         self.event_memory, self.current_event_record = [], None
         self.event_facts, self.delivered_facts = {}, set()
         self.yellow_incidents, self.protocol_incidents = [], []
+        self.plain_history = []
         self.recovery_memory = ''
         self.protocol_feedback = ''
         self.seen_edges, self.shown_branches = set(), set()
@@ -843,4 +917,6 @@ class Game24STARController:
             self.events, dict(nodes=list(self.nodes.values()), active_path=self.active_path,
                               archived_paths=self.archived_paths,
                               local_events=deepcopy(self.yellow_incidents),
+                              ablation_input_policy=('all_roles_native_chronological_history_v3'
+                                  if self.settings.ablation == 'without_event_subtree' else None),
                               adaptation_version=GAME24_ADAPTATION_VERSION), cost, self.settings.as_dict(), error)

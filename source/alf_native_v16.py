@@ -10,6 +10,7 @@ from scoped_review_session import ForwardTrial, ReviewSession
 from tree_history import canonical
 from alf_author_reflection import reflection_query
 from alf_local_evidence import decision_key, new_accepted_evidence, trace_text
+import plain_history
 
 
 VERSION = 'v64_simple_author_reflection_bounded_yellow_v2'
@@ -19,6 +20,8 @@ YELLOW_ACTIONS = 4
 
 class SimpleEpisode(AlfEpisode):
     def prompt(self, memory):
+        if getattr(self, 'plain_history_prompt', None) is not None:
+            return self.plain_history_prompt
         text = super().prompt(memory)
         self.last_history_window = dict(truncated=False,
             omitted_records=0,retained_records=len(self.history),
@@ -266,7 +269,8 @@ class SimpleV64Controller(ScopedRecoveryController):
             yellow_outcomes=self.local_outcomes,
             semantics='This is the actual failed ETT branch. Actions can be accepted but wrong '
                       'for the task. The first rejection need not be the first wrong decision.')
-        transcript = trace_text(self.episode.initial['observation'], path)
+        transcript = (trace_text(self.episode.initial['observation'], path) if self.EVENT_SUBTREE_ENABLED
+                      else plain_history.transcript(self))
         if empty_failure is not None:
             evidence['unexecuted_model_failure'] = empty_failure
             transcript += ('\n\nController-observed failure: the next Actor response was empty. '
@@ -298,8 +302,9 @@ class SimpleV64Controller(ScopedRecoveryController):
                     'The controller will restore BEFORE that action. Do not automatically choose '
                     'the first rejected command: an earlier accepted wrong-object decision may '
                     'be the cause. There is no default root. Choose one listed ACTION id.'),
-                dict(role='user',content=trace_text(self.episode.initial['observation'],path,indexed=True)
-                    + '\n\nReflection:\n' + reflection.text
+                dict(role='user',content=(trace_text(self.episode.initial['observation'],path,indexed=True)
+                    if self.EVENT_SUBTREE_ENABLED else plain_history.indexed_history(self, path))
+                    + ('\n\nReflection:\n' + reflection.text if self.EVENT_SUBTREE_ENABLED else '')
                     + '\n\nSelect the action to change. Retaining an earlier wrong take retains '
                       'that held object; undo the causing action rather than only its later symptom.\n'
                     + '\n'.join(choices))])

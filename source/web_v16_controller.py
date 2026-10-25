@@ -7,6 +7,7 @@ from scoped_recovery import ScopeKind
 from tree_history import canonical
 from experiment_settings import Experiment, EXECUTION_PROTOCOL
 from web_v16_episode import author_reflection
+import plain_history
 from web_v16_evidence import decision_key, green_events, interface_key, new_evidence
 from webshop_semantics import (checkpoint_kind, checkpoint_snapshot,
                                progress_kind, public_fault_action_index)
@@ -43,6 +44,8 @@ class WebV16Controller(SimpleV64Controller):
         self.web_yellow_navigation_handoff = None
         self.recovery_stages = []
         self.recovery_index = 0
+        if self.settings.ablation == 'without_event_subtree':
+            plain_history.install(self)
         if self.settings.max_recoveries != 1:
             self.RED_ENTRY_LIMIT = self.settings.max_recoveries
             original_emit = self.emit
@@ -292,6 +295,9 @@ class WebV16Controller(SimpleV64Controller):
         return compact
 
     def _red_trace(self, path, *, indexed=False):
+        if self.settings.ablation == 'without_event_subtree':
+            return (plain_history.indexed_history(self, path) if indexed
+                    else plain_history.transcript(self))
         # Red needs product/title/price/options and receipts, not the entire
         # HTML-like observation history. This keeps the author reflection
         # protocol while bounding the WebShop-specific evidence transcript.
@@ -314,7 +320,8 @@ class WebV16Controller(SimpleV64Controller):
         return text
 
     def _red_reflection_prompt(self, transcript):
-        prompt = author_reflection(transcript)
+        prompt = author_reflection(transcript,
+            preserve_history=self.settings.ablation == 'without_event_subtree')
         marker = '\n\nNew plan:'
         prefix, separator, suffix = prompt.rpartition(marker)
         if not separator:
@@ -343,10 +350,19 @@ class WebV16Controller(SimpleV64Controller):
                 'the public trace and receipts, not the partial score alone.')
 
     def _red_action_index_mapping(self, path, reflection):
+        if self.settings.ablation == 'without_event_subtree':
+            return None
         return public_fault_action_index(path, reflection)
+
+    def _red_selection_reflection(self, reflection):
+        if self.settings.ablation == 'without_event_subtree':
+            return ''
+        return super()._red_selection_reflection(reflection)
 
     def _red_phase1_evidence(self, path, reflection, evidence):
         """Freeze phase-1 public evidence for the second-stage locator."""
+        if self.settings.ablation == 'without_event_subtree':
+            return None
         transitions = []
         for index, occurrence in enumerate(path):
             receipt = occurrence.receipt
@@ -445,16 +461,9 @@ class WebV16Controller(SimpleV64Controller):
 
     def _yellow_feedback(self, scope):
         if self.settings.ablation == 'without_event_subtree':
-            incident = self.simple_yellow_event
-            return dict(original_instruction=self.episode.instruction,
-                current_public_page=self.episode.snapshot(),
-                incident_kind=incident['kind'], pending_green_proposal=self.simple_yellow_proposal,
-                invalid_detail=incident.get('invalid_detail'),
-                local_receipts=[dict(action=self.occurrences[i].action,
-                    observation=self.occurrences[i].receipt['observation'],
-                    accepted=self.occurrences[i].receipt['native_accepted']) for i in scope.occurrence_ids],
-                actions_remaining=min(self.settings.yellow_actions-scope.action_serial,
-                                      self._forward_window()['new_actions_remaining']))
+            return dict(history=plain_history.local_context(self),
+                        actions_remaining=min(self.settings.yellow_actions-scope.action_serial,
+                                              self._forward_window()['new_actions_remaining']))
         return dict(original_instruction=self.episode.instruction,
             incident=self.simple_yellow_event, pending_green_proposal=self.simple_yellow_proposal,
             current_public_page=self.episode.snapshot(),
@@ -467,6 +476,9 @@ class WebV16Controller(SimpleV64Controller):
                 'An accepted click does not prove shopping success. Historical advice is unverified.')
 
     def _bind_scope(self, scope, directive):
+        if self.settings.ablation == 'without_event_subtree':
+            self.pending_green_events = []
+            return plain_history.bind(self, scope)
         if scope.kind is ScopeKind.GREEN:
             view = (self._plain_recovery_notes() if self.settings.ablation == 'without_event_subtree'
                     else green_events(self))
@@ -539,7 +551,9 @@ class WebV16Controller(SimpleV64Controller):
                 'does not repair a loop. Green remains responsible for the whole shopping task.\n\n'
                 + ('[LOCAL_FEEDBACK]\n' if self.settings.ablation == 'without_event_subtree'
                    else '[LOCAL_EVENT_SUBTREE]\n')
-                + canonical(self._yellow_feedback(scope)) + '\nLocal diagnosis:')
+                + (plain_history.local_context(self)
+                   if self.settings.ablation == 'without_event_subtree'
+                   else canonical(self._yellow_feedback(scope))) + '\nLocal diagnosis:')
             address = self._address(scope)
             self.oracle.bind(address, self.episode, prompt, ())
             generation = self.oracle.request(address, Role.REFLECTION, 0, prompt, self.ledger,
@@ -723,6 +737,7 @@ class WebV16Controller(SimpleV64Controller):
             recovery_window_actions=self.settings.recovery_actions,
             yellow_actions_per_entry=self.settings.yellow_actions, yellow_entries_per_window=self.YELLOW_ENTRY_LIMIT,
             event_subtree_enabled=self.settings.ablation != 'without_event_subtree',
+            ablation_input_policy=(plain_history.POLICY if self.settings.ablation == 'without_event_subtree' else None),
             max_red_model_calls=0 if self.settings.ablation == 'without_red' else 2,
             max_recovery_actions=0 if self.settings.ablation == 'without_red' else self.RECOVERY_WINDOW,
             experiment_settings=self.settings.as_dict(),

@@ -28,9 +28,10 @@ def trace_text(initial, path, *, indexed=False):
     return text
 
 
-def author_reflection(transcript):
+def author_reflection(transcript, *, preserve_history=False):
     query = reflection_functions(PACKAGE/'vendor/webshop_reflection_prompt.py',
-                                 PACKAGE/'vendor/webshop_reflexion_examples.txt')
+                                 PACKAGE/'vendor/webshop_reflexion_examples.txt',
+                                 preserve_history=preserve_history)
     return query(transcript + '\n\nSTATUS: FAIL', [])
 
 
@@ -96,6 +97,8 @@ class WebV16Episode(WebShopEpisode):
         self._scope_view, self._scope_kind = view, kind
 
     def prompt(self, memory):
+        if getattr(self, 'plain_history_prompt', None) is not None:
+            return self.plain_history_prompt
         if memory != () or self.initial is None or self._scope_kind is None:
             raise ProtocolError('WebShop v16 requires reset and bound scope, no external memory')
         text = self.base_prompt + '\n\n'

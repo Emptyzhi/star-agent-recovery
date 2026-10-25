@@ -104,7 +104,7 @@ class AlfAblationTests(unittest.TestCase):
                 experiment=dict(ablation=mode))
             settings, sampling, capacity = dispatch_star.resolve_request(request, {})
             args = SimpleNamespace(model_path='/models/qwen', dtype='bfloat16',
-                parent_job_id='test-job', node='test-node', results_root=Path('results'))
+                parent_job_id='3820768', node='gpu13', results_root=Path('results'))
             command = dispatch_star.worker_command(args, request, 0, list(range(0,134,2)),
                 settings, sampling, capacity)
             parsed = run_star.build_parser().parse_args(command[2:])
@@ -166,7 +166,8 @@ class AlfAblationTests(unittest.TestCase):
                 'put apple 1 in/on table 2'], 'without_event_subtree')
         self.assertTrue(result['success'])
         self.assertTrue(any(e['event']=='yellow_local_diagnosis' for e in events))
-        self.assertTrue(any('LOCAL_REPAIR_FEEDBACK' in r.prompt for r in requests))
+        self.assertTrue(any('Local diagnosis (model advice): Take the visible apple.' in r.prompt for r in requests))
+        self.assertTrue(all('LOCAL_REPAIR_FEEDBACK' not in r.prompt for r in requests))
         self.assertEqual(episode.recovery_event_subtree, dict(events=[], nodes=[]))
         self.assertFalse(any('[EVENT_SUBTREE]' in r.prompt for r in requests))
 

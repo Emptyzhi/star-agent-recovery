@@ -34,6 +34,8 @@ class RebasedEpisode(SimpleEpisode):
         self.recovery_prefix_length=None
 
     def prompt(self,memory):
+        if getattr(self, 'plain_history_prompt', None) is not None:
+            return self.plain_history_prompt
         if self.recovery_prefix_length is None:
             return super().prompt(memory)
         if memory!=() or self.red_repair_handoff is None:

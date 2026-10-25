@@ -19,7 +19,7 @@ def literal_assignment(path, name):
     return value
 
 
-def reflection_functions(source_path, examples_path):
+def reflection_functions(source_path, examples_path, *, preserve_history=False):
     """Extract the two unmodified pure functions; never execute vendor imports."""
     module = ast.parse(Path(source_path).read_text(encoding="utf-8"))
     names = {"_get_scenario", "_generate_reflection_query"}
@@ -29,6 +29,11 @@ def reflection_functions(source_path, examples_path):
     namespace = {"List": List, "Dict": Dict, "Any": Any,
                  "FEW_SHOT_EXAMPLES": Path(examples_path).read_text(encoding="utf-8")}
     exec(compile(ast.Module(body=nodes, type_ignores=[]), str(source_path), "exec"), namespace)
+    if preserve_history:
+        # Native marker extraction chooses the last Instruction: and can lose
+        # real earlier history after returning to search. This arm requires all
+        # chronological receipts, including literal marker text, without edits.
+        namespace['_get_scenario'] = lambda scenario: scenario
     return namespace["_generate_reflection_query"]
 
 
