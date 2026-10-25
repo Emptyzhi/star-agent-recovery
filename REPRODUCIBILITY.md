@@ -9,11 +9,9 @@ the Qwen WebShop recovery-allowance curve. The one-recovery curve point is the
 Qwen WebShop main-table record. The other four curve prefixes are separate
 records; these overlapping prefixes must not be counted as independent tasks.
 
-For the main table, the Qwen WebShop record contains the prefix through one
-allowed recovery (258/500 successes), not the complete four-recovery outcome
-(291/500). The no-RLR component record is identified by its own run identifier
-and contains 240/500 successes. Do not replace it with another no-RLR archive
-merely because the component name matches.
+The Qwen WebShop main-table record covers one recovery (258/500 successes).
+The no-RLR component record contains 240/500 successes. Run identifiers in the
+index determine which records belong to each comparison.
 
 Each task CSV contains only task indices, outcomes, token counts, request
 counts where recorded, and timing fields. Machine paths, account names,
@@ -24,9 +22,8 @@ comparison is computed from that missing field.
 
 Archived settings come from execution requests, group run configurations, or
 task identity records; their source type is stated in each configuration.
-Current runner defaults do not replace historical configuration. The repository revision identifies the
-released implementation; the result index preserves historical run identity
-without asserting byte-for-byte equality of every historical deployment.
+The repository revision identifies the released implementation; the result
+index identifies historical runs. Use their recorded configuration for reruns.
 
 ## Task selection
 
@@ -72,6 +69,22 @@ The script outputs unrounded values so display rounding can be applied last.
 These task summaries reproduce result tables; they do not reconstruct the
 decision-level failure labels without the original event trajectories.
 
+WebShop reward is the highest reward from an executed purchase within the
+evaluated recovery prefix, or zero without a purchase. Success requires reward
+one. Unexecuted proposals and checkpoint scores do not contribute.
+`benchmark_reward` and `success` report these outcomes; `terminal_rewards`
+stores observed purchase rewards. The `final_public_reward`,
+`native_final_benchmark_reward`, and `native_final_success` fields retain the
+final environment outcome separately. The policy identifier is
+`webshop_best_observed_purchase_v1`. Recovery-curve records apply this policy
+through each successive recovery.
+
+WebShop uses the configured action, recovery, context, per-call output, and
+elapsed-time limits, with no additional total request or token cap by default.
+Native environment acceptance determines whether an option click executes.
+Accepted selected options are recorded even when their labels were absent
+from the current public callable-action catalog; that catalog is not expanded.
+
 Tokens include both model input and output across action, diagnosis, review,
 and selection requests. Queue-excluded time is the task's measured controller
 elapsed time minus accumulated tokenizer-lock and engine scheduling waits.
@@ -96,12 +109,21 @@ otherwise a constrained model choice. Empty actor output returns to the
 pre-generation checkpoint. Unexecuted proposals
 are incident evidence and do not become executed-action nodes.
 
+## Component ablations
+
+The paper's **w/o event-subtree guidance** variant uses the archived option
+`without_event_subtree` and CSV identifier `no_event_subtree`. It retains
+ordinary interaction history, recovery notes, and the recovery procedures,
+while removing event-specific records and action guidance supplied through
+the subtree. This is a component-removal comparison, not an equal-information
+comparison between tree and flat serialization. STAR's full event views
+include task-relevant reminders as well as execution and repair records.
+
 ## Complete main-table records
 
-`table1_index.json` and `check_table1.py` cover all 63 selected method/model/task
-cohorts and reproduce the 21 main-table rows, including unrounded three-task
-means. Six baseline methods contribute 54 cohorts. Their CSVs retain task IDs,
-outcomes, recorded costs, and outcome provenance without deployment identities.
+`check_table1.py` reconstructs all main-table rows, including unrounded
+three-task means. Baseline CSVs retain task IDs, outcomes, recorded costs,
+and outcome provenance.
 The five archived GA episode-assertion outcomes in the Mistral WebShop run are
 included with their original failure status and recorded costs. They are not
 missing tasks or newly imputed outcomes. WebShop best-executed-purchase scores
@@ -109,6 +131,5 @@ follow the archived scoring records; one-recovery prefixes use recorded stage
 outcomes and costs rather than final four-recovery totals.
 
 `baseline_configurations.json` preserves selected fields from each run's
-archived request or task identity. It is configuration evidence, not a portable
-launch request: model paths, service endpoints, and scheduler bindings must be
-provided by the reproducer. The release does not start experiments automatically.
+archived request or task identity. Supply local model paths, service endpoints,
+and scheduler bindings when launching a new run.

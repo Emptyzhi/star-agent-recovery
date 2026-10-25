@@ -27,14 +27,6 @@ native benchmark resources. This supplies environments and demonstrations,
 not STAR's local-repair or checkpoint-selection policy. ToT and LATS retain
 their own search procedures and use dataset-specific environment adapters.
 
-These are released adapter snapshots. The result index identifies the actual
-historical runs; configuration exports come from those archives rather than
-being inferred from current defaults. Do not claim that an arbitrary rerun of
-the current defaults is byte-identical to every historical deployment.
-
 The ToT and LATS adapter sources use their archived Qwen ALFWorld 50-action
-packages as the release snapshot, avoiding later local working-copy edits.
+packages as the release snapshot.
 The per-run configuration evidence remains authoritative for historical runs.
-
-The task CSVs include all selected tasks, including unsuccessful tasks and
-recorded episode failures. No task is omitted to improve a reported average.

@@ -12,19 +12,16 @@ Validation was performed without starting a model or benchmark experiment.
 - Pinned external dependency acquisition and compatibility reconstruction
   completed successfully. Generated upstream files are excluded from Git.
 
-The retained legacy ToT/LATS `tests/` suites include expectations from older
-interfaces (including a former two-round ToT setting and a removed candidate
-pipeline). Broad discovery of those legacy suites is not a passing release
-gate. The targeted checks above exercise the released protocol, scoring, and
-stage-accounting boundaries. They do not establish a fresh model-level rerun
-or byte-identical reproduction of every historical deployment.
+The retained legacy ToT/LATS suites include older interface and round-setting
+expectations; broad discovery is not a passing release gate. The obsolete
+test importing the absent LATS candidate-pipeline module has been removed.
+The targeted checks above cover framing, scoring, and stage accounting; they
+do not establish a fresh model-level rerun or exact historical-code parity.
 
 The publication copy changes resource locations and descriptive comments,
 repairs an inherited test indentation error, and aligns one replay-window
 test with its existing prefix-plus-new-actions semantics. It does not change
 archived outcomes or the recovery algorithms to improve benchmark scores.
 
-Before publication, tracked filenames and content were checked for known
-author identifiers, personal machine paths, email signatures, and institution
-names. External repository URLs in `upstreams.json` identify dependencies;
-they are intentionally retained so a reader can obtain the original sources.
+Publication checks cover tracked author identifiers, private paths, signatures,
+and institution names. Upstream dependency URLs remain in `upstreams.json`.
