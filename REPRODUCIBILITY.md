@@ -111,7 +111,7 @@ are incident evidence and do not become executed-action nodes.
 
 ## Component ablations
 
-The paper's **w/o event-subtree guidance** variant uses the archived option
+The paper's **w/o event subtree** variant uses the archived option
 `without_event_subtree` and CSV identifier `no_event_subtree`. It retains
 ordinary interaction history, recovery notes, and the recovery procedures,
 while removing event-specific records and action guidance supplied through

@@ -78,7 +78,7 @@ execution position or ask the model to select an available identifier. An
 empty actor response restores its pre-generation checkpoint. Two recovery
 stages therefore do not imply two model calls in every case.
 
-The **w/o event-subtree guidance** ablation removes the event-specific records
+The **w/o event subtree** ablation removes the event-specific records
 and guidance delivered through the subtree, retaining ordinary history and
 recovery notes. See `REPRODUCIBILITY.md` for the archived configuration names.
 
