@@ -1,0 +1,46 @@
+{
+  "base_sha256": "f9393af973fd2d0343c8b68e89572e6139ebc8d6a2309a145c554a80284e81cb",
+  "result_sha256": "25fc5b3c75532dba35aa65366e517d91a6751e5e14a860ef2b90214569a480cc",
+  "changes": [
+    {
+      "start": 0,
+      "end": 1,
+      "lines": [
+        "import argparse, json, logging, random, threading\n"
+      ]
+    },
+    {
+      "start": 43,
+      "end": 43,
+      "lines": [
+        "_initialization_lock = threading.Lock()\n"
+      ]
+    },
+    {
+      "start": 57,
+      "end": 67,
+      "lines": [
+        "        # Product and goal tables are lazily initialized by the first request.\n",
+        "        # With threaded dispatch, serialize only this one-time phase so two\n",
+        "        # task sessions cannot publish partially initialized global state.\n",
+        "        with _initialization_lock:\n",
+        "            if search_engine is None:\n",
+        "                all_products, product_item_dict, product_prices, attribute_to_asins = \\\n",
+        "                    load_products(\n",
+        "                        filepath=DEFAULT_FILE_PATH,\n",
+        "                        num_products=DEBUG_PROD_SIZE\n",
+        "                    )\n",
+        "                search_engine = init_search_engine(num_products=DEBUG_PROD_SIZE)\n",
+        "                goals = get_goals(all_products, product_prices)\n",
+        "                random.seed(233)\n",
+        "                random.shuffle(goals)\n",
+        "                weights = [goal['weight'] for goal in goals]\n"
+      ]
+    },
+    {
+      "start": 234,
+      "end": 236,
+      "lines": []
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "base_sha256": "bdd6df3b869cf3fe028169add3611d1b811ae663ae4f79520617c26b20614970",
+  "result_sha256": "e04b0b0663372004eef6507512ec6dc75046bd651562098322cd6f08ca379df0",
+  "changes": [
+    {
+      "start": 4,
+      "end": 4,
+      "lines": [
+        "import os\n"
+      ]
+    },
+    {
+      "start": 7,
+      "end": 7,
+      "lines": [
+        "BENCHMARK_ROOT = os.environ.get(\n",
+        "    'WEBSHOP_BENCHMARK_ROOT', join(BASE_DIR, '..', '..'))\n"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "lines": [
+        "DEFAULT_ATTR_PATH = join(BENCHMARK_ROOT, 'data/items_ins_v2.json')\n",
+        "DEFAULT_FILE_PATH = join(BENCHMARK_ROOT, 'data/items_shuffle.json')\n",
+        "DEFAULT_REVIEW_PATH = join(BENCHMARK_ROOT, 'data/reviews.json')\n"
+      ]
+    },
+    {
+      "start": 13,
+      "end": 15,
+      "lines": [
+        "FEAT_CONV = join(BENCHMARK_ROOT, 'data/feat_conv.pt')\n",
+        "FEAT_IDS = join(BENCHMARK_ROOT, 'data/feat_ids.pt')\n"
+      ]
+    },
+    {
+      "start": 16,
+      "end": 18,
+      "lines": [
+        "HUMAN_ATTR_PATH = join(BENCHMARK_ROOT, 'data/items_human_ins.json')\n"
+      ]
+    },
+    {
+      "start": 47,
+      "end": 48,
+      "lines": [
+        "    return sha.hexdigest()[:10].upper()\n"
+      ]
+    }
+  ]
+}

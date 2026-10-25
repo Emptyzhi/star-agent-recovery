@@ -1,0 +1,14 @@
+{
+  "base_sha256": "fa582e8838557bc553f43e39c437655b7c0105c9e7b7de30fd27e5fda185d210",
+  "result_sha256": "e55ccf882482e40674ca03b811ba91c43808f6eef653405a596b88e42e7c6a31",
+  "changes": [
+    {
+      "start": 9,
+      "end": 10,
+      "lines": [
+        "# The resident adapter binds the selected model's tokenizer for token counting.\n",
+        "tokenizer = None\n"
+      ]
+    }
+  ]
+}

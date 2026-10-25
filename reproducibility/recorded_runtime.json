@@ -1,0 +1,17 @@
+{
+  "scope": "recorded resident health for the Llama ALFWorld main-table run",
+  "source_run_id": "www2027_llama_star_alfworld50_full134_c40_gpu16_20261020_r4",
+  "runtime": {
+    "engine": "vllm",
+    "engine_version": "0.6.6",
+    "torch_version": "2.5.1+cu121",
+    "gpu_name": "NVIDIA A100-PCIE-40GB",
+    "torch_dtype": "bfloat16",
+    "model_context_tokens": 32768,
+    "max_prompt_tokens": 31568,
+    "max_new_tokens": 1200,
+    "max_num_seqs": 40,
+    "max_forward_batch_size": 40
+  },
+  "dependency_constraints": "Repository requirements give compatible ranges; this is not a full environment lockfile."
+}

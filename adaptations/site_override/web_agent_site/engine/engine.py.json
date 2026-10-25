@@ -1,0 +1,243 @@
+{
+  "base_sha256": "9b86ffc82951124f5c4a7eb8103de14100dbee11ba8869951ed6fb8feaeef804",
+  "result_sha256": "75795e800960d442b5e82e1a1d08eb95f5f769bec7493f0db83c77355c33848d",
+  "changes": [
+    {
+      "start": 4,
+      "end": 4,
+      "lines": [
+        "from urllib.parse import unquote\n"
+      ]
+    },
+    {
+      "start": 19,
+      "end": 19,
+      "lines": [
+        "    BENCHMARK_ROOT,\n"
+      ]
+    },
+    {
+      "start": 132,
+      "end": 133,
+      "lines": [
+        "        # The client protects slashes from Flask route splitting with one\n",
+        "        # transport encoding layer. Remove only that layer here before the\n",
+        "        # native search parser sees the query.\n",
+        "        keywords = unquote(string)\n"
+      ]
+    },
+    {
+      "start": 205,
+      "end": 206,
+      "lines": [
+        "    search_engine = LuceneSearcher(os.path.join(BENCHMARK_ROOT, f'search_engine/{indexes}'))\n"
+      ]
+    },
+    {
+      "start": 229,
+      "end": 229,
+      "lines": [
+        "def _iter_json_array(filepath):\n",
+        "    \"\"\"Stream a top-level JSON array without retaining the raw catalog.\"\"\"\n",
+        "    decoder = json.JSONDecoder()\n",
+        "    with open(filepath, encoding='utf-8') as stream:\n",
+        "        buffer = ''\n",
+        "        position = 0\n",
+        "        eof = False\n",
+        "\n",
+        "        def refill():\n",
+        "            nonlocal buffer, eof\n",
+        "            chunk = stream.read(8 * 1024 * 1024)\n",
+        "            if chunk:\n",
+        "                buffer += chunk\n",
+        "                return True\n",
+        "            eof = True\n",
+        "            return False\n",
+        "\n",
+        "        refill()\n",
+        "        while position < len(buffer) and buffer[position].isspace():\n",
+        "            position += 1\n",
+        "        if position >= len(buffer) or buffer[position] != '[':\n",
+        "            raise ValueError('WebShop product file must contain a JSON array')\n",
+        "        position += 1\n",
+        "        while True:\n",
+        "            while True:\n",
+        "                while position < len(buffer) and buffer[position].isspace():\n",
+        "                    position += 1\n",
+        "                if position < len(buffer):\n",
+        "                    break\n",
+        "                if eof or not refill():\n",
+        "                    raise ValueError('unexpected end of WebShop product array')\n",
+        "            if buffer[position] == ']':\n",
+        "                return\n",
+        "            while True:\n",
+        "                try:\n",
+        "                    item, end = decoder.raw_decode(buffer, position)\n",
+        "                except json.JSONDecodeError:\n",
+        "                    if eof or not refill():\n",
+        "                        raise\n",
+        "                    continue\n",
+        "                yield item\n",
+        "                position = end\n",
+        "                break\n",
+        "            while True:\n",
+        "                while position < len(buffer) and buffer[position].isspace():\n",
+        "                    position += 1\n",
+        "                if position < len(buffer):\n",
+        "                    break\n",
+        "                if eof or not refill():\n",
+        "                    raise ValueError('unexpected end after WebShop product')\n",
+        "            if buffer[position] == ',':\n",
+        "                position += 1\n",
+        "            elif buffer[position] == ']':\n",
+        "                return\n",
+        "            else:\n",
+        "                raise ValueError('invalid WebShop product array separator')\n",
+        "            if position >= 8 * 1024 * 1024:\n",
+        "                buffer = buffer[position:]\n",
+        "                position = 0\n",
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "start": 230,
+      "end": 244,
+      "lines": [
+        "    all_reviews = {}\n",
+        "    all_ratings = {}\n"
+      ]
+    },
+    {
+      "start": 245,
+      "end": 252,
+      "lines": [
+        "        with open(HUMAN_ATTR_PATH, encoding='utf-8') as stream:\n",
+        "            human_attributes = json.load(stream)\n",
+        "    with open(DEFAULT_ATTR_PATH, encoding='utf-8') as stream:\n",
+        "        attributes = json.load(stream)\n",
+        "    with open(HUMAN_ATTR_PATH, encoding='utf-8') as stream:\n",
+        "        human_attributes = json.load(stream)\n",
+        "    print('Attributes loaded; streaming products.')\n"
+      ]
+    },
+    {
+      "start": 256,
+      "end": 260,
+      "lines": [
+        "    iterator = _iter_json_array(filepath)\n",
+        "    for raw_index, p in enumerate(tqdm(iterator, total=num_products)):\n",
+        "        if num_products is not None and raw_index >= num_products:\n",
+        "            break\n"
+      ]
+    },
+    {
+      "start": 261,
+      "end": 262,
+      "lines": [
+        "        if asin == 'nan' or len(asin) > 10 or asin in asins:\n"
+      ]
+    },
+    {
+      "start": 263,
+      "end": 282,
+      "lines": [
+        "        asins.add(asin)\n",
+        "        for key in ('product_information', 'brand', 'brand_url', 'list_price',\n",
+        "                    'availability_quantity', 'availability_status', 'total_reviews',\n",
+        "                    'total_answered_questions', 'seller_id', 'seller_name',\n",
+        "                    'fulfilled_by_amazon', 'fast_track_message', 'aplus_present',\n",
+        "                    'small_description_old'):\n",
+        "            p.pop(key, None)\n",
+        "        p['category'] = p['category']\n",
+        "        p['query'] = p['query']\n",
+        "        p['product_category'] = p['product_category']\n",
+        "        p['Title'] = p['name']\n",
+        "        p['Description'] = p['full_description']\n",
+        "        p['Reviews'] = all_reviews.get(asin, [])\n",
+        "        p['Rating'] = all_ratings.get(asin, 'N.A.')\n",
+        "        for review in p['Reviews']:\n",
+        "            if 'score' not in review:\n",
+        "                review['score'] = review.pop('stars')\n",
+        "            if 'review' not in review:\n",
+        "                review['body'] = ''\n"
+      ]
+    },
+    {
+      "start": 283,
+      "end": 287,
+      "lines": [
+        "                review['body'] = review.pop('review')\n",
+        "        p['BulletPoints'] = p['small_description'] if isinstance(p['small_description'], list) else [p['small_description']]\n"
+      ]
+    },
+    {
+      "start": 289,
+      "end": 291,
+      "lines": [
+        "            pricing, price_tag = [100.0], '$100.0'\n"
+      ]
+    },
+    {
+      "start": 292,
+      "end": 296,
+      "lines": [
+        "            pricing = [float(Decimal(re.sub(r'[^\\d.]', '', price))) for price in pricing.split('$')[1:]]\n"
+      ]
+    },
+    {
+      "start": 297,
+      "end": 298,
+      "lines": [
+        "                price_tag = f'${pricing[0]}'\n"
+      ]
+    },
+    {
+      "start": 299,
+      "end": 300,
+      "lines": [
+        "                price_tag = f'${pricing[0]} to ${pricing[1]}'\n"
+      ]
+    },
+    {
+      "start": 301,
+      "end": 340,
+      "lines": [
+        "        p['pricing'], p['Price'] = pricing, price_tag\n",
+        "        options, option_to_image = {}, {}\n",
+        "        for option_name, option_contents in (p['customization_options'] or {}).items():\n",
+        "            if option_contents is None:\n",
+        "                continue\n",
+        "            values = []\n",
+        "            for option_content in option_contents:\n",
+        "                value = option_content['value'].strip().replace('/', ' | ').lower()\n",
+        "                values.append(value)\n",
+        "                option_to_image[value] = option_content.get('image')\n",
+        "            options[option_name.lower()] = values\n",
+        "        p['options'], p['option_to_image'] = options, option_to_image\n",
+        "        p['Attributes'] = attributes.get(asin, {}).get('attributes', ['DUMMY_ATTR'])\n"
+      ]
+    },
+    {
+      "start": 342,
+      "end": 343,
+      "lines": [
+        "                p['instructions'] = human_attributes[asin]\n"
+      ]
+    },
+    {
+      "start": 344,
+      "end": 359,
+      "lines": [
+        "            p['instruction_text'] = attributes[asin].get('instruction')\n",
+        "            p['instruction_attributes'] = attributes[asin].get('instruction_attributes')\n",
+        "        p['MainImage'] = p['images'][0]\n",
+        "        p['query'] = p['query'].lower().strip()\n",
+        "        all_products.append(p)\n",
+        "        for attribute in p['Attributes']:\n",
+        "            attribute_to_asins[attribute].add(asin)\n",
+        "    print('Products loaded.')\n"
+      ]
+    }
+  ]
+}

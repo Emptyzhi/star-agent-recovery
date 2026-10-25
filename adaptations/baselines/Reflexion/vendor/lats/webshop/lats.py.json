@@ -1,0 +1,39 @@
+{
+  "base_sha256": "8139c8bf9176201d893529125712a842465c2b80607f8f71e8cf9180e0786490",
+  "result_sha256": "64c9329d9571d84a1db7222c823d4a9cae0ca0021342d6420441c4062bdb9cb5",
+  "changes": [
+    {
+      "start": 10,
+      "end": 11,
+      "lines": []
+    },
+    {
+      "start": 431,
+      "end": 432,
+      "lines": [
+        "        while node is not None and node.is_terminal and node.reward != 1:\n"
+      ]
+    },
+    {
+      "start": 441,
+      "end": 442,
+      "lines": [
+        "            return node.state, node.value, node.reward, node.em\n"
+      ]
+    },
+    {
+      "start": 624,
+      "end": 625,
+      "lines": [
+        "        action_line = next((line.split(\":\", 1)[1].strip() for line in action.split(\"\\n\") if line.startswith(\"Action\") and \":\" in line), None)\n"
+      ]
+    },
+    {
+      "start": 735,
+      "end": 736,
+      "lines": [
+        "    return question + '\\n\\n'.join(reversed(trajectory))\n"
+      ]
+    }
+  ]
+}

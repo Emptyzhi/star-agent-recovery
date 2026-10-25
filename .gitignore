@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+results/
+logs/
+resident_state/
+*.log
+*.jsonl
+.upstream-cache/
+/prompts/
+/vendor/
+/site_override/
+/baselines/*/vendor/
+/baselines/*/prompts/
+/baselines/*/runtime_compat/vendor/

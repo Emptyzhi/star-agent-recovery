@@ -1,0 +1,5 @@
+# Runner dependencies. Native benchmark environments are installed separately.
+requests>=2.31
+PyYAML>=6.0
+transformers>=4.45
+beautifulsoup4>=4.12

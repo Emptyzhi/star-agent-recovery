@@ -1,0 +1,23 @@
+{
+  "base_sha256": "9703c8583244e2041182eb14856186b998145ab16ce2ba9aef8cb680877c8ed5",
+  "result_sha256": "789c22282ed5393c946483f8cc15bea48e19e7bb783d3026d6e7273136b0d35b",
+  "changes": [
+    {
+      "start": 5,
+      "end": 6,
+      "lines": [
+        "import click\n"
+      ]
+    },
+    {
+      "start": 11,
+      "end": 11,
+      "lines": [
+        "if not hasattr(click.Choice, '__class_getitem__'):\n",
+        "    click.Choice.__class_getitem__ = classmethod(lambda cls, item: cls)\n",
+        "\n",
+        "import spacy\n"
+      ]
+    }
+  ]
+}

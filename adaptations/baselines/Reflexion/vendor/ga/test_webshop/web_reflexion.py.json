@@ -1,0 +1,20 @@
+{
+  "base_sha256": "c9b2a97f93c8e019b37af59513512f48d111df26438f0dcbb14a60b2bab317d7",
+  "result_sha256": "0ea8987dcc0b222313f88142f465b20707dcbaefff254b3f322f566b75aed14f",
+  "changes": [
+    {
+      "start": 222,
+      "end": 223,
+      "lines": [
+        "        action = model._generate(str(env_history) + '\\nAction:', '\\n').lstrip(' ')\n"
+      ]
+    },
+    {
+      "start": 411,
+      "end": 412,
+      "lines": [
+        "    main(args)\n"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "base_sha256": "fa582e8838557bc553f43e39c437655b7c0105c9e7b7de30fd27e5fda185d210",
+  "result_sha256": "03416ecfa0a159ed2cc74fb26573ce1a09e2b49c74ecaf50912018ac61881872",
+  "changes": [
+    {
+      "start": 2,
+      "end": 5,
+      "lines": [
+        "from .base import Task\n",
+        "from .prompt import *\n",
+        "from source.model import unbound_gpt as gpt, unbound_gpt as gpt4\n"
+      ]
+    },
+    {
+      "start": 7,
+      "end": 8,
+      "lines": []
+    },
+    {
+      "start": 9,
+      "end": 10,
+      "lines": [
+        "# The resident adapter binds the selected model's tokenizer for token counting.\n",
+        "tokenizer = None\n"
+      ]
+    }
+  ]
+}

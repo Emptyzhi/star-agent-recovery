@@ -1,0 +1,85 @@
+{
+  "base_sha256": "38b6650d7d553c9299786f3c935e480ed92c07df2065a1f7be368ba3d8009eb3",
+  "result_sha256": "c0d5bd1b80d364120cc65ba69dc8cd299d054111fbe6e3ff931a7953b67aca4c",
+  "changes": [
+    {
+      "start": 1,
+      "end": 2,
+      "lines": [
+        "Use numbers and basic arithmetic operations (+ - * /) to obtain 24. Each step, choose two of the remaining numbers to obtain a new number.\n"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 4,
+      "lines": [
+        "# Examples\n"
+      ]
+    },
+    {
+      "start": 5,
+      "end": 6,
+      "lines": []
+    },
+    {
+      "start": 16,
+      "end": 17,
+      "lines": []
+    },
+    {
+      "start": 18,
+      "end": 19,
+      "lines": [
+        "Act 1> 12 * 2 = 24\n"
+      ]
+    },
+    {
+      "start": 27,
+      "end": 28,
+      "lines": []
+    },
+    {
+      "start": 32,
+      "end": 33,
+      "lines": [
+        "Obs 2> numbers left: 4 6\n"
+      ]
+    },
+    {
+      "start": 38,
+      "end": 39,
+      "lines": []
+    },
+    {
+      "start": 49,
+      "end": 50,
+      "lines": []
+    },
+    {
+      "start": 54,
+      "end": 55,
+      "lines": [
+        "Obs 2> numbers left: 9 15\n"
+      ]
+    },
+    {
+      "start": 56,
+      "end": 57,
+      "lines": [
+        "Obs 3> numbers left: 24\n"
+      ]
+    },
+    {
+      "start": 59,
+      "end": 59,
+      "lines": [
+        "\n",
+        "Return exactly one next action on one line. A normal action must be:\n",
+        "<current number> <operator> <current number> = <result>\n",
+        "When the trajectory is ready to finish, return:\n",
+        "answer: <expression using all four original numbers> = 24\n",
+        "Do not explain or output an observation.\n"
+      ]
+    }
+  ]
+}

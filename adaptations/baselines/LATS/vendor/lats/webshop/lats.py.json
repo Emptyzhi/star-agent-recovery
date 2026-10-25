@@ -1,0 +1,56 @@
+{
+  "base_sha256": "8139c8bf9176201d893529125712a842465c2b80607f8f71e8cf9180e0786490",
+  "result_sha256": "175338d93eff0d83409e50ed8595337eb8d1883ecd871cd3314df337176173e1",
+  "changes": [
+    {
+      "start": 9,
+      "end": 11,
+      "lines": []
+    },
+    {
+      "start": 16,
+      "end": 17,
+      "lines": [
+        "from source.model import unbound_gpt as gpt\n"
+      ]
+    },
+    {
+      "start": 22,
+      "end": 23,
+      "lines": []
+    },
+    {
+      "start": 431,
+      "end": 432,
+      "lines": [
+        "        while node is not None and node.is_terminal and node.reward != 1:\n"
+      ]
+    },
+    {
+      "start": 441,
+      "end": 442,
+      "lines": [
+        "            return node.state, node.value, node.reward, node.em\n"
+      ]
+    },
+    {
+      "start": 624,
+      "end": 625,
+      "lines": [
+        "        action_line = next((line.split(\":\", 1)[1].strip() for line in action.split(\"\\n\") if line.startswith(\"Action\") and \":\" in line), None)\n"
+      ]
+    },
+    {
+      "start": 654,
+      "end": 655,
+      "lines": []
+    },
+    {
+      "start": 735,
+      "end": 736,
+      "lines": [
+        "    return question + '\\n\\n'.join(reversed(trajectory))\n"
+      ]
+    }
+  ]
+}

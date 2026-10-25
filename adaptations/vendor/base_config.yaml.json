@@ -1,0 +1,20 @@
+{
+  "base_sha256": "d95e445ae3b3fc1f277a6ebd613678bf2c46a39a4975d8a12a85d642e8d40016",
+  "result_sha256": "ede1adb371e60e61825724ca89dadb7d4f8fdb7c97c52be6dcae51b6e309ad3f",
+  "changes": [
+    {
+      "start": 87,
+      "end": 88,
+      "lines": [
+        "    max_nb_steps_per_episode: 99                              # allow replay prefix plus 49 recovery actions\n"
+      ]
+    },
+    {
+      "start": 120,
+      "end": 121,
+      "lines": [
+        "    max_nb_steps_per_episode: 99                              # allow replay prefix plus 49 recovery actions\n"
+      ]
+    }
+  ]
+}

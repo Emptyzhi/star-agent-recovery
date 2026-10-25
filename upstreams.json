@@ -1,0 +1,757 @@
+{
+  "upstreams": {
+    "ga": {
+      "url": "https://github.com/wisper12933/GA-Rollback.git",
+      "commit": "f6fb280d6c5a03a515e5a7db213585ccd9b0f068"
+    },
+    "tot": {
+      "url": "https://github.com/princeton-nlp/tree-of-thought-llm.git",
+      "commit": "8050e67d0e3a0fddc424d7fa5801538722a4c4cc"
+    },
+    "lats": {
+      "url": "https://github.com/andyz245/LanguageAgentTreeSearch.git",
+      "commit": "853d81614607dd27433faf17c7b0a7d660f95d22"
+    },
+    "rewind": {
+      "url": "https://github.com/Futuresis/replay-agent-recorder.git",
+      "commit": "6661046e2b30fcf5f17c93d51acb56babdea8c53"
+    },
+    "webshop": {
+      "url": "https://github.com/princeton-nlp/WebShop.git",
+      "commit": "64fa2a5c15c7daa698b9ac93f5bb5437b634c9bd"
+    }
+  },
+  "assets": [
+    {
+      "upstream": "ga",
+      "source": "prompts/alfworld/alfworld_base_prompts.json",
+      "target": "prompts/alfworld/alfworld_base_prompts.json"
+    },
+    {
+      "upstream": "ga",
+      "source": "prompts/alfworld/alfworld_reflexion_examples.txt",
+      "target": "prompts/alfworld/alfworld_reflexion_examples.txt"
+    },
+    {
+      "upstream": "ga",
+      "source": "prompts/game24/game24_base_actionly.txt",
+      "target": "prompts/game24/game24_base_actionly.txt"
+    },
+    {
+      "upstream": "ga",
+      "source": "prompts/game24/game24_reflexion_examples.txt",
+      "target": "prompts/game24/game24_reflexion_examples.txt"
+    },
+    {
+      "upstream": "ga",
+      "source": "prompts/webshop/webshop_reflexion_actionly_prompt.txt",
+      "target": "prompts/webshop/webshop_reflexion_actionly_prompt.txt"
+    },
+    {
+      "upstream": "ga",
+      "source": "prompts/webshop/webshop_reflexion_examples.txt",
+      "target": "prompts/webshop/webshop_reflexion_examples.txt"
+    },
+    {
+      "upstream": "ga",
+      "source": "test_alfworld/base_config.yaml",
+      "target": "vendor/base_config.yaml",
+      "patch": "adaptations/vendor/base_config.yaml.json"
+    },
+    {
+      "upstream": "ga",
+      "source": "prompts/webshop/webshop_reflexion_examples.txt",
+      "target": "vendor/webshop_reflexion_examples.txt"
+    },
+    {
+      "upstream": "ga",
+      "source": "test_webshop/web_reflexion.py",
+      "target": "vendor/webshop_reflection_prompt.py",
+      "functions": [
+        "_get_scenario",
+        "_generate_reflection_query"
+      ]
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/__init__.py",
+      "target": "site_override/web_agent_site/__init__.py"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/app.py",
+      "target": "site_override/web_agent_site/app.py",
+      "patch": "adaptations/site_override/web_agent_site/app.py.json"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/attributes/annotate.py",
+      "target": "site_override/web_agent_site/attributes/annotate.py"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/attributes/generate_attrs.py",
+      "target": "site_override/web_agent_site/attributes/generate_attrs.py"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/engine/__init__.py",
+      "target": "site_override/web_agent_site/engine/__init__.py"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/engine/engine.py",
+      "target": "site_override/web_agent_site/engine/engine.py",
+      "patch": "adaptations/site_override/web_agent_site/engine/engine.py.json"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/engine/goal.py",
+      "target": "site_override/web_agent_site/engine/goal.py",
+      "patch": "adaptations/site_override/web_agent_site/engine/goal.py.json"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/engine/normalize.py",
+      "target": "site_override/web_agent_site/engine/normalize.py"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/envs/__init__.py",
+      "target": "site_override/web_agent_site/envs/__init__.py"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/envs/web_agent_site_env.py",
+      "target": "site_override/web_agent_site/envs/web_agent_site_env.py"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/envs/web_agent_text_env.py",
+      "target": "site_override/web_agent_site/envs/web_agent_text_env.py"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/static/images/no-image-available.png",
+      "target": "site_override/web_agent_site/static/images/no-image-available.png"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/static/style.css",
+      "target": "site_override/web_agent_site/static/style.css"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/templates/attributes_page.html",
+      "target": "site_override/web_agent_site/templates/attributes_page.html"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/templates/description_page.html",
+      "target": "site_override/web_agent_site/templates/description_page.html"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/templates/done_page.html",
+      "target": "site_override/web_agent_site/templates/done_page.html"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/templates/features_page.html",
+      "target": "site_override/web_agent_site/templates/features_page.html"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/templates/item_page.html",
+      "target": "site_override/web_agent_site/templates/item_page.html"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/templates/results_page.html",
+      "target": "site_override/web_agent_site/templates/results_page.html"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/templates/review_page.html",
+      "target": "site_override/web_agent_site/templates/review_page.html"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/templates/search_page.html",
+      "target": "site_override/web_agent_site/templates/search_page.html"
+    },
+    {
+      "upstream": "webshop",
+      "source": "web_agent_site/utils.py",
+      "target": "site_override/web_agent_site/utils.py",
+      "patch": "adaptations/site_override/web_agent_site/utils.py.json"
+    },
+    {
+      "upstream": "webshop",
+      "source": "LICENSE.md",
+      "target": "site_override/LICENSE.upstream.md"
+    },
+    {
+      "upstream": "ga",
+      "source": ".",
+      "target": "baselines/ReAct/vendor/ga",
+      "tree": true,
+      "files": [
+        "LLMs/README.md",
+        "README.md",
+        "images/methodology.png",
+        "prompts/alfworld/alfworld_analyze_examples.txt",
+        "prompts/alfworld/alfworld_base_prompts.json",
+        "prompts/alfworld/alfworld_reflexion_examples.txt",
+        "prompts/alfworld/alfworld_repetition_examples.txt",
+        "prompts/alfworld/alfworld_ssr_base_prompts.json",
+        "prompts/game24/game24_analyze_examples.txt",
+        "prompts/game24/game24_base_actionly.txt",
+        "prompts/game24/game24_base_react.txt",
+        "prompts/game24/game24_reflexion_examples.txt",
+        "prompts/webshop/webshop_reflexion_actionly_prompt.txt",
+        "prompts/webshop/webshop_reflexion_examples.txt",
+        "prompts/webshop/webshop_reflexion_react_prompt.txt",
+        "prompts/webshop/webshop_ssr_actionly_prompt.txt",
+        "prompts/webshop/webshop_ssr_analyze_examples.txt",
+        "prompts/webshop/webshop_ssr_react_prompt.txt",
+        "prompts/webshop/webshop_ssr_repetition_examples.txt",
+        "requirements.txt",
+        "test_alfworld/alf_react.py",
+        "test_alfworld/alf_reflexion.py",
+        "test_alfworld/alf_reflexion_rollback.py",
+        "test_alfworld/alf_rollback.py",
+        "test_alfworld/alfworld/README.md",
+        "test_alfworld/alfworld_logs/README.md",
+        "test_alfworld/base_config.yaml",
+        "test_game24/24.csv",
+        "test_game24/g24_react.py",
+        "test_game24/g24_reflexion.py",
+        "test_game24/g24_reflexion_rollback.py",
+        "test_game24/g24_rollback.py",
+        "test_game24/game24.py",
+        "test_game24/game24_logs/README.md",
+        "test_webshop/web_react.py",
+        "test_webshop/web_reflexion.py",
+        "test_webshop/web_reflexion_rollback.py",
+        "test_webshop/web_rollback.py",
+        "test_webshop/webshop/README.md",
+        "test_webshop/webshop_logs/README.md",
+        "test_webshop/website.py"
+      ]
+    },
+    {
+      "upstream": "ga",
+      "source": "test_webshop/web_reflexion.py",
+      "target": "baselines/ReAct/vendor/ga/test_webshop/web_reflexion.py",
+      "patch": "adaptations/baselines/ReAct/vendor/ga/test_webshop/web_reflexion.py.json"
+    },
+    {
+      "upstream": "tot",
+      "source": ".",
+      "target": "baselines/ReAct/vendor/tot",
+      "tree": true,
+      "files": [
+        "README.md",
+        "run.py",
+        "scripts/game24/bfs.sh",
+        "scripts/game24/cot_sampling.sh",
+        "scripts/game24/standard_sampling.sh",
+        "src/tot/__init__.py",
+        "src/tot/data/24/24.csv",
+        "src/tot/data/crosswords/mini0505.json",
+        "src/tot/data/crosswords/mini0505_0_100_5.json",
+        "src/tot/data/text/data_100_random_text.txt",
+        "src/tot/methods/bfs.py",
+        "src/tot/models.py",
+        "src/tot/prompts/crosswords.py",
+        "src/tot/prompts/game24.py",
+        "src/tot/prompts/text.py",
+        "src/tot/tasks/__init__.py",
+        "src/tot/tasks/base.py",
+        "src/tot/tasks/crosswords.py",
+        "src/tot/tasks/game24.py",
+        "src/tot/tasks/text.py"
+      ]
+    },
+    {
+      "upstream": "lats",
+      "source": ".",
+      "target": "baselines/ReAct/vendor/lats",
+      "tree": true,
+      "files": [
+        "LICENSE",
+        "README.md",
+        "webshop/base.py",
+        "webshop/lats.py",
+        "webshop/lats.sh",
+        "webshop/logs/example.log",
+        "webshop/models.py",
+        "webshop/prompt.py",
+        "webshop/requirements.txt",
+        "webshop/run.py",
+        "webshop/webshop.py"
+      ]
+    },
+    {
+      "upstream": "lats",
+      "source": "webshop/lats.py",
+      "target": "baselines/ReAct/vendor/lats/webshop/lats.py",
+      "patch": "adaptations/baselines/ReAct/vendor/lats/webshop/lats.py.json"
+    },
+    {
+      "upstream": "lats",
+      "source": "webshop/webshop.py",
+      "target": "baselines/ReAct/vendor/lats/webshop/webshop.py",
+      "patch": "adaptations/baselines/ReAct/vendor/lats/webshop/webshop.py.json"
+    },
+    {
+      "upstream": "ga",
+      "source": ".",
+      "target": "baselines/Reflexion/vendor/ga",
+      "tree": true,
+      "files": [
+        "LLMs/README.md",
+        "README.md",
+        "images/methodology.png",
+        "prompts/alfworld/alfworld_analyze_examples.txt",
+        "prompts/alfworld/alfworld_base_prompts.json",
+        "prompts/alfworld/alfworld_reflexion_examples.txt",
+        "prompts/alfworld/alfworld_repetition_examples.txt",
+        "prompts/alfworld/alfworld_ssr_base_prompts.json",
+        "prompts/game24/game24_analyze_examples.txt",
+        "prompts/game24/game24_base_actionly.txt",
+        "prompts/game24/game24_base_react.txt",
+        "prompts/game24/game24_reflexion_examples.txt",
+        "prompts/webshop/webshop_reflexion_actionly_prompt.txt",
+        "prompts/webshop/webshop_reflexion_examples.txt",
+        "prompts/webshop/webshop_reflexion_react_prompt.txt",
+        "prompts/webshop/webshop_ssr_actionly_prompt.txt",
+        "prompts/webshop/webshop_ssr_analyze_examples.txt",
+        "prompts/webshop/webshop_ssr_react_prompt.txt",
+        "prompts/webshop/webshop_ssr_repetition_examples.txt",
+        "requirements.txt",
+        "test_alfworld/alf_react.py",
+        "test_alfworld/alf_reflexion.py",
+        "test_alfworld/alf_reflexion_rollback.py",
+        "test_alfworld/alf_rollback.py",
+        "test_alfworld/alfworld/README.md",
+        "test_alfworld/alfworld_logs/README.md",
+        "test_alfworld/base_config.yaml",
+        "test_game24/24.csv",
+        "test_game24/g24_react.py",
+        "test_game24/g24_reflexion.py",
+        "test_game24/g24_reflexion_rollback.py",
+        "test_game24/g24_rollback.py",
+        "test_game24/game24.py",
+        "test_game24/game24_logs/README.md",
+        "test_webshop/web_react.py",
+        "test_webshop/web_reflexion.py",
+        "test_webshop/web_reflexion_rollback.py",
+        "test_webshop/web_rollback.py",
+        "test_webshop/webshop/README.md",
+        "test_webshop/webshop_logs/README.md",
+        "test_webshop/website.py"
+      ]
+    },
+    {
+      "upstream": "ga",
+      "source": "test_webshop/web_reflexion.py",
+      "target": "baselines/Reflexion/vendor/ga/test_webshop/web_reflexion.py",
+      "patch": "adaptations/baselines/Reflexion/vendor/ga/test_webshop/web_reflexion.py.json"
+    },
+    {
+      "upstream": "tot",
+      "source": ".",
+      "target": "baselines/Reflexion/vendor/tot",
+      "tree": true,
+      "files": [
+        "README.md",
+        "run.py",
+        "scripts/game24/bfs.sh",
+        "scripts/game24/cot_sampling.sh",
+        "scripts/game24/standard_sampling.sh",
+        "src/tot/__init__.py",
+        "src/tot/data/24/24.csv",
+        "src/tot/data/crosswords/mini0505.json",
+        "src/tot/data/crosswords/mini0505_0_100_5.json",
+        "src/tot/data/text/data_100_random_text.txt",
+        "src/tot/methods/bfs.py",
+        "src/tot/models.py",
+        "src/tot/prompts/crosswords.py",
+        "src/tot/prompts/game24.py",
+        "src/tot/prompts/text.py",
+        "src/tot/tasks/__init__.py",
+        "src/tot/tasks/base.py",
+        "src/tot/tasks/crosswords.py",
+        "src/tot/tasks/game24.py",
+        "src/tot/tasks/text.py"
+      ]
+    },
+    {
+      "upstream": "lats",
+      "source": ".",
+      "target": "baselines/Reflexion/vendor/lats",
+      "tree": true,
+      "files": [
+        "LICENSE",
+        "README.md",
+        "webshop/base.py",
+        "webshop/lats.py",
+        "webshop/lats.sh",
+        "webshop/logs/example.log",
+        "webshop/models.py",
+        "webshop/prompt.py",
+        "webshop/requirements.txt",
+        "webshop/run.py",
+        "webshop/webshop.py"
+      ]
+    },
+    {
+      "upstream": "lats",
+      "source": "webshop/lats.py",
+      "target": "baselines/Reflexion/vendor/lats/webshop/lats.py",
+      "patch": "adaptations/baselines/Reflexion/vendor/lats/webshop/lats.py.json"
+    },
+    {
+      "upstream": "lats",
+      "source": "webshop/webshop.py",
+      "target": "baselines/Reflexion/vendor/lats/webshop/webshop.py",
+      "patch": "adaptations/baselines/Reflexion/vendor/lats/webshop/webshop.py.json"
+    },
+    {
+      "upstream": "ga",
+      "source": ".",
+      "target": "baselines/GA-Rollback/vendor/ga",
+      "tree": true,
+      "files": [
+        "LLMs/README.md",
+        "README.md",
+        "images/methodology.png",
+        "prompts/alfworld/alfworld_analyze_examples.txt",
+        "prompts/alfworld/alfworld_base_prompts.json",
+        "prompts/alfworld/alfworld_reflexion_examples.txt",
+        "prompts/alfworld/alfworld_repetition_examples.txt",
+        "prompts/alfworld/alfworld_ssr_base_prompts.json",
+        "prompts/game24/game24_analyze_examples.txt",
+        "prompts/game24/game24_base_actionly.txt",
+        "prompts/game24/game24_base_react.txt",
+        "prompts/game24/game24_reflexion_examples.txt",
+        "prompts/webshop/webshop_reflexion_actionly_prompt.txt",
+        "prompts/webshop/webshop_reflexion_examples.txt",
+        "prompts/webshop/webshop_reflexion_react_prompt.txt",
+        "prompts/webshop/webshop_ssr_actionly_prompt.txt",
+        "prompts/webshop/webshop_ssr_analyze_examples.txt",
+        "prompts/webshop/webshop_ssr_react_prompt.txt",
+        "prompts/webshop/webshop_ssr_repetition_examples.txt",
+        "requirements.txt",
+        "test_alfworld/alf_react.py",
+        "test_alfworld/alf_reflexion.py",
+        "test_alfworld/alf_reflexion_rollback.py",
+        "test_alfworld/alf_rollback.py",
+        "test_alfworld/alfworld/README.md",
+        "test_alfworld/alfworld_logs/README.md",
+        "test_alfworld/base_config.yaml",
+        "test_game24/24.csv",
+        "test_game24/g24_react.py",
+        "test_game24/g24_reflexion.py",
+        "test_game24/g24_reflexion_rollback.py",
+        "test_game24/g24_rollback.py",
+        "test_game24/game24.py",
+        "test_game24/game24_logs/README.md",
+        "test_webshop/web_react.py",
+        "test_webshop/web_reflexion.py",
+        "test_webshop/web_reflexion_rollback.py",
+        "test_webshop/web_rollback.py",
+        "test_webshop/webshop/README.md",
+        "test_webshop/webshop_logs/README.md",
+        "test_webshop/website.py"
+      ]
+    },
+    {
+      "upstream": "ga",
+      "source": "test_webshop/web_reflexion.py",
+      "target": "baselines/GA-Rollback/vendor/ga/test_webshop/web_reflexion.py",
+      "patch": "adaptations/baselines/GA-Rollback/vendor/ga/test_webshop/web_reflexion.py.json"
+    },
+    {
+      "upstream": "tot",
+      "source": ".",
+      "target": "baselines/GA-Rollback/vendor/tot",
+      "tree": true,
+      "files": [
+        "README.md",
+        "run.py",
+        "scripts/game24/bfs.sh",
+        "scripts/game24/cot_sampling.sh",
+        "scripts/game24/standard_sampling.sh",
+        "src/tot/__init__.py",
+        "src/tot/data/24/24.csv",
+        "src/tot/data/crosswords/mini0505.json",
+        "src/tot/data/crosswords/mini0505_0_100_5.json",
+        "src/tot/data/text/data_100_random_text.txt",
+        "src/tot/methods/bfs.py",
+        "src/tot/models.py",
+        "src/tot/prompts/crosswords.py",
+        "src/tot/prompts/game24.py",
+        "src/tot/prompts/text.py",
+        "src/tot/tasks/__init__.py",
+        "src/tot/tasks/base.py",
+        "src/tot/tasks/crosswords.py",
+        "src/tot/tasks/game24.py",
+        "src/tot/tasks/text.py"
+      ]
+    },
+    {
+      "upstream": "lats",
+      "source": ".",
+      "target": "baselines/GA-Rollback/vendor/lats",
+      "tree": true,
+      "files": [
+        "LICENSE",
+        "README.md",
+        "webshop/base.py",
+        "webshop/lats.py",
+        "webshop/lats.sh",
+        "webshop/logs/example.log",
+        "webshop/models.py",
+        "webshop/prompt.py",
+        "webshop/requirements.txt",
+        "webshop/run.py",
+        "webshop/webshop.py"
+      ]
+    },
+    {
+      "upstream": "lats",
+      "source": "webshop/lats.py",
+      "target": "baselines/GA-Rollback/vendor/lats/webshop/lats.py",
+      "patch": "adaptations/baselines/GA-Rollback/vendor/lats/webshop/lats.py.json"
+    },
+    {
+      "upstream": "lats",
+      "source": "webshop/webshop.py",
+      "target": "baselines/GA-Rollback/vendor/lats/webshop/webshop.py",
+      "patch": "adaptations/baselines/GA-Rollback/vendor/lats/webshop/webshop.py.json"
+    },
+    {
+      "upstream": "ga",
+      "source": ".",
+      "target": "baselines/ToT/vendor/ga",
+      "tree": true,
+      "files": [
+        "prompts/alfworld/alfworld_base_prompts.json",
+        "test_alfworld/base_config.yaml",
+        "test_webshop/web_react.py"
+      ]
+    },
+    {
+      "upstream": "tot",
+      "source": ".",
+      "target": "baselines/ToT/vendor/tot",
+      "tree": true,
+      "files": [
+        "LICENSE",
+        "src/tot/__init__.py",
+        "src/tot/data/24/24.csv",
+        "src/tot/data/crosswords/mini0505.json",
+        "src/tot/data/crosswords/mini0505_0_100_5.json",
+        "src/tot/data/text/data_100_random_text.txt",
+        "src/tot/methods/bfs.py",
+        "src/tot/models.py",
+        "src/tot/prompts/crosswords.py",
+        "src/tot/prompts/game24.py",
+        "src/tot/prompts/text.py",
+        "src/tot/tasks/__init__.py",
+        "src/tot/tasks/base.py",
+        "src/tot/tasks/crosswords.py",
+        "src/tot/tasks/game24.py",
+        "src/tot/tasks/text.py"
+      ]
+    },
+    {
+      "upstream": "ga",
+      "source": "prompts/game24/game24_base_actionly.txt",
+      "target": "baselines/ToT/prompts/game24/game24_base_actionly.txt",
+      "patch": "adaptations/baselines/ToT/prompts/game24/game24_base_actionly.txt.json"
+    },
+    {
+      "upstream": "ga",
+      "source": ".",
+      "target": "baselines/LATS/vendor/ga",
+      "tree": true,
+      "files": [
+        "prompts/alfworld/alfworld_base_prompts.json",
+        "prompts/game24/game24_base_react.txt",
+        "test_alfworld/base_config.yaml",
+        "test_game24/game24.py"
+      ]
+    },
+    {
+      "upstream": "lats",
+      "source": ".",
+      "target": "baselines/LATS/vendor/lats",
+      "tree": true,
+      "files": [
+        "LICENSE",
+        "README.md",
+        "webshop/base.py",
+        "webshop/lats.py",
+        "webshop/prompt.py",
+        "webshop/webshop.py"
+      ]
+    },
+    {
+      "upstream": "lats",
+      "source": "webshop/lats.py",
+      "target": "baselines/LATS/vendor/lats/webshop/lats.py",
+      "patch": "adaptations/baselines/LATS/vendor/lats/webshop/lats.py.json"
+    },
+    {
+      "upstream": "lats",
+      "source": "webshop/webshop.py",
+      "target": "baselines/LATS/vendor/lats/webshop/webshop.py",
+      "patch": "adaptations/baselines/LATS/vendor/lats/webshop/webshop.py.json"
+    },
+    {
+      "upstream": "ga",
+      "source": "prompts/game24/game24_base_actionly.txt",
+      "target": "baselines/LATS/prompts/game24/game24_base_actionly.txt"
+    },
+    {
+      "upstream": "ga",
+      "source": "prompts/webshop/webshop_reflexion_actionly_prompt.txt",
+      "target": "baselines/LATS/prompts/webshop/webshop_reflexion_actionly_prompt.txt"
+    },
+    {
+      "upstream": "rewind",
+      "source": ".",
+      "target": "baselines/AgentRewind/vendor/upstream",
+      "tree": true,
+      "files": [
+        "LICENSE",
+        "README.md",
+        "pyproject.toml",
+        "replay/README.md",
+        "replay/__init__.py",
+        "replay/__main__.py",
+        "replay/api.py",
+        "replay/asgi.py",
+        "replay/asyncio_patch.py",
+        "replay/autosession.py",
+        "replay/backtrack.py",
+        "replay/backtrack_summary.py",
+        "replay/bootstrap.py",
+        "replay/cli.py",
+        "replay/codecs.py",
+        "replay/context.py",
+        "replay/docker_backend.py",
+        "replay/edges.py",
+        "replay/entrypoints.py",
+        "replay/errors.py",
+        "replay/filesystem_effects.py",
+        "replay/git_workspace.py",
+        "replay/graph_ir.py",
+        "replay/ids.py",
+        "replay/import_hook.py",
+        "replay/instrument.py",
+        "replay/integration.py",
+        "replay/langchain_patch.py",
+        "replay/langgraph_config.py",
+        "replay/langgraph_patch.py",
+        "replay/litellm_patch.py",
+        "replay/normalization.py",
+        "replay/openai_patch.py",
+        "replay/path_normalization.py",
+        "replay/response.py",
+        "replay/sandbox/__init__.py",
+        "replay/sandbox/cli.py",
+        "replay/sandbox/docker_client.py",
+        "replay/sandbox/domains/__init__.py",
+        "replay/sandbox/domains/files.py",
+        "replay/sandbox/domains/processes.py",
+        "replay/sandbox/domains/rootfs.py",
+        "replay/sandbox/gc.py",
+        "replay/sandbox/hooks.py",
+        "replay/sandbox/ledger.py",
+        "replay/sandbox/mcp_protocol.py",
+        "replay/sandbox/mcp_server.py",
+        "replay/sandbox/navigation.py",
+        "replay/sandbox/orchestrate.py",
+        "replay/sandbox/registry.py",
+        "replay/sandbox/session.py",
+        "replay/sandbox/types.py",
+        "replay/sandbox/wrap.py",
+        "replay/sandbox_manager.py",
+        "replay/scaffold.py",
+        "replay/scaffold_detect.py",
+        "replay/semantic_runtime.py",
+        "replay/storage.py",
+        "replay/target_env.py",
+        "replay/tests/__init__.py",
+        "replay/tests/ast_provenance_test.py",
+        "replay/tests/smoke_test.py",
+        "replay/tests/test_asgi_mode.py",
+        "replay/tests/test_autosession.py",
+        "replay/tests/test_backtrack.py",
+        "replay/tests/test_backtrack_memory_discipline.py",
+        "replay/tests/test_bootstrap.py",
+        "replay/tests/test_context_adapter_boundaries.py",
+        "replay/tests/test_direct_workspace.py",
+        "replay/tests/test_docker_backend.py",
+        "replay/tests/test_docker_environment_records.py",
+        "replay/tests/test_entrypoints.py",
+        "replay/tests/test_fork_reuse_policy_api.py",
+        "replay/tests/test_git_workspace.py",
+        "replay/tests/test_git_workspace_cli.py",
+        "replay/tests/test_git_workspace_fork.py",
+        "replay/tests/test_git_workspace_record_replay.py",
+        "replay/tests/test_graph_ir.py",
+        "replay/tests/test_instrument_scope_sources.py",
+        "replay/tests/test_integration.py",
+        "replay/tests/test_langchain_patch_unit.py",
+        "replay/tests/test_langgraph_config.py",
+        "replay/tests/test_litellm_patch.py",
+        "replay/tests/test_normalization.py",
+        "replay/tests/test_optional_dependencies.py",
+        "replay/tests/test_path_normalization_workspace.py",
+        "replay/tests/test_phase1_codecs.py",
+        "replay/tests/test_public_exports.py",
+        "replay/tests/test_sandbox_async_checkpoint.py",
+        "replay/tests/test_sandbox_cli.py",
+        "replay/tests/test_sandbox_diff.py",
+        "replay/tests/test_sandbox_docker_client.py",
+        "replay/tests/test_sandbox_files_domain.py",
+        "replay/tests/test_sandbox_gc.py",
+        "replay/tests/test_sandbox_hooks.py",
+        "replay/tests/test_sandbox_ledger.py",
+        "replay/tests/test_sandbox_mcp_protocol.py",
+        "replay/tests/test_sandbox_mcp_tools.py",
+        "replay/tests/test_sandbox_navigation.py",
+        "replay/tests/test_sandbox_orchestrate.py",
+        "replay/tests/test_sandbox_pause.py",
+        "replay/tests/test_sandbox_processes.py",
+        "replay/tests/test_sandbox_readonly_skip.py",
+        "replay/tests/test_sandbox_registry.py",
+        "replay/tests/test_sandbox_rootfs_domain.py",
+        "replay/tests/test_sandbox_session.py",
+        "replay/tests/test_sandbox_wrap.py",
+        "replay/tests/test_scaffold_detect.py",
+        "replay/tests/test_semantic_runtime_adapter_hooks.py",
+        "replay/tests/test_storage.py",
+        "replay/tests/test_target_env.py",
+        "replay/tests/test_tool_calls.py",
+        "replay/tests/test_tool_metadata.py",
+        "replay/tests/test_visualize_cli.py",
+        "replay/tests/test_visualize_html.py",
+        "replay/tests/tool_test.py",
+        "replay/tool_adapters.py",
+        "replay/tool_calls.py",
+        "replay/tools.py",
+        "replay/visualize.py",
+        "replay/workspace_manager.py",
+        "replay/xyflow_assets/xyflow-viewer.css",
+        "replay/xyflow_assets/xyflow-viewer.js"
+      ]
+    }
+  ]
+}

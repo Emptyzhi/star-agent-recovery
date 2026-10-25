@@ -1,0 +1,11 @@
+numpy
+pandas
+sympy
+requests
+transformers
+torch
+beautifulsoup4
+PyYAML
+# ALFWorld runs additionally require the existing alfworld==0.3.5 runtime,
+# TextWorld dependencies, installed game data and an ordered task manifest.
+# vLLM belongs to the resident server environment, not this client runner.
