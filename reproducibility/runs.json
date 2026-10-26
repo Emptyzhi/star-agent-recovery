@@ -6005,9 +6005,9 @@
       "evaluation_scope": "reported component ablation",
       "tasks_file": "tasks/WebShop/Qwen2.5-14B-Instruct/no_event_subtree.csv",
       "tasks": 500,
-      "successes": 247,
-      "SR_percent": 49.4,
-      "R_percent": 75.925,
+      "successes": 246,
+      "SR_percent": 49.2,
+      "R_percent": 75.30166666666668,
       "configuration": {
         "status": "archived_request",
         "experiment": {
@@ -6546,12 +6546,12 @@
         "input_policy": "all_roles_native_chronological_history_v3"
       },
       "cost_means": {
-        "input_tokens": 17910.594,
-        "output_tokens": 261.908,
-        "model_requests": 11.692,
-        "elapsed_seconds": 115.05129498590529,
-        "model_queue_seconds": 42.820251004502175,
-        "queue_excluded_elapsed_seconds": 72.23104398140312
+        "input_tokens": 18255.928,
+        "output_tokens": 259.22,
+        "model_requests": 11.822,
+        "elapsed_seconds": 115.44807949627936,
+        "model_queue_seconds": 42.555052893474695,
+        "queue_excluded_elapsed_seconds": 72.89302660280467
       }
     },
     {
